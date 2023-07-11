@@ -26,7 +26,25 @@ export async function getServerSideProps(context) {
   const { JSDOM } = jsdom;
   const dom = new JSDOM(headerHtml);
   const wrapper = dom.window.document.querySelector('#root')
-
+  // List Data 
+  let element =  wrapper.querySelector(`[data-type="list-common"]`)
+  if(element) {
+    element.outerHTML = listTickets.map((ticket)=>{
+      let defaultTicketComponent = element.cloneNode(true);
+        Object.keys(ticket).forEach((ticketKey)=>{
+        let childElement = defaultTicketComponent.querySelector(`[data-key="${ticketKey}"]`)
+        if(childElement) {
+          childElement.innerHTML = ticket[ticketKey]
+        if(ticketKey == 'subject') {
+          childElement.setAttribute('href',`/ticket/${ticket.id}`)
+        }  
+        }
+         
+      })
+      return defaultTicketComponent.outerHTML
+    }).join('')
+  }
+  
    //Write
    let formWriteElement = wrapper.querySelector(`[data-type="ticket-write"]`)
    if(formWriteElement) {
@@ -73,24 +91,7 @@ export async function getServerSideProps(context) {
       return defaultCommentComponent.outerHTML
     }).join('')
   }
-  // List Data 
-  let element =  wrapper.querySelector(`[data-type="list-common"]`)
-  if(element) {
-    element.outerHTML = listTickets.map((ticket)=>{
-      let defaultTicketComponent = element.cloneNode(true);
-        Object.keys(ticket).forEach((ticketKey)=>{
-        let childElement = defaultTicketComponent.querySelector(`[data-key="${ticketKey}"]`)
-        if(childElement) {
-          childElement.innerHTML = ticket[ticketKey]
-        if(ticketKey == 'subject') {
-          childElement.setAttribute('href',`/ticket/${ticket.id}`)
-        }  
-        }
-         
-      })
-      return defaultTicketComponent.outerHTML
-    }).join('')
-  }
+
 
  
   
