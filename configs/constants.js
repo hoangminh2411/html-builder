@@ -251,10 +251,10 @@ export const headerHtml = `<html lang="en">
                   <div id="desk-comment">
                   <div id="iyns3y">Comment</div>
                   <div id="iiz0fj">
-                    <div data-type="comment" data-key="comment">
-                      <div id="i5eszp">
-                        <div id="ii7b9a">
-                          <h6 data-key="user" id="i0tv4u">MSR</h6>
+                    <div data-type="comment" >
+                      <div class="item-container"  data-key="comment">
+                        <div class="item-header">
+                          <h6 data-key="user" class="user-title">MSR</h6>
                           <span class="comment-time" data-key="createdAt">8/10/2022 23:30</span>
                         </div>
                         <div data-key="content">met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div>
@@ -263,7 +263,7 @@ export const headerHtml = `<html lang="en">
                     <!-- <div id="iwyqai"><div id="i9k4qf"><h6 id="i4xssk">Feedback from Contact</h6><span  class="comment-time">8/10/2022 23:30</span></div><div >met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div></div><div id="ianyhm"><div id="ixd8p9"><h6 id="itlbfq">MSR 2</h6><span class="comment-time">8/10/2022 23:30</span></div><div >met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div></div> -->
                   </div>
                   <div id="iv324k">
-                    <p id="impap6" class="view-all-btn">View All</p>
+                    <p id="view-all-btn-comment" class="view-all-btn">View All</p>
                   </div>
                   
                   <hr id="il90i4" />
@@ -1351,13 +1351,13 @@ body {
 #iiz0fj {
   padding: 16px 0px;
 }
-#i5eszp {
+.item-container {
   margin-top: 8px;
 }
-#ii7b9a {
+.item-header {
   display: flex;
 }
-#i0tv4u {
+.user-title {
   margin: 0px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -1412,7 +1412,7 @@ body {
   justify-content: center;
   padding: 8px;
 }
-#impap6 {
+.view-all-btn {
   margin: 0px;
   font-size: 0.875rem;
   line-height: 1.57;
@@ -1940,21 +1940,33 @@ function onSplitBtnClick () {
 //View all btn comment
 const DeskComment = document.querySelector("#desk-comment")
 
-const allComments =  DeskComment.querySelectorAll('[data-type="comment"]');
-const viewAllBtn =  DeskComment.querySelector(".view-all-btn")
+const allComments =  DeskComment.querySelectorAll("[data-key=comment]");
+const viewAllBtn =  document.querySelector("#view-all-btn-comment")
     if (allComments.length > 1){
      viewAllBtn.style.visibility = "visible";
-     viewAllBtn.addEventListener("click", onViewAllClick())
     }
+viewAllBtn.addEventListener("click", onViewAllCommentClick)
 
 function onViewAllCommentClick () {
+
+
   if (viewAllBtn.className.includes('hide'))
   {
-    allComments.map((comment,index)=>{ if(index > 0) comment.style.visibility ="hidden" })
+    Array.from(allComments).map((comment,index)=>{
+       if(index > 0) comment.setAttribute("hidden",true)
+      })
+
+
+      viewAllBtn.className = "view-all-btn"
+      viewAllBtn.innerHTML = "View All"
+
   }
   else {  
-    allComments.map((comment,index)=>{ if(index > 0) comment.style.visibility ="visible" })
-    viewAllBtn.className = "view-all-btn hide"
+    Array.from(allComments).map((comment,index)=>{ 
+      if(index > 0) comment.removeAttribute("hidden") })
+      viewAllBtn.className = "view-all-btn hide"
+      viewAllBtn.innerHTML = "Hide"
+
 }
 }
 </script>`
@@ -2102,44 +2114,33 @@ export const parseDataTicket = () => {
     resolvedDate: '2023/06/24 09:03 am Test',
     closedAt:'2023/06/23 09:03 am Test',
     content:'This Ticket in Desk Site',
-    comment: [{
-      user:'Tinh Chikitori',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    },
-    {
-      user:'Tinh Chikitori 2',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    },
-    {
-      user:'Tinh Chikitori 3',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    },
-    {
-      user:'Tinh Chikitori 3',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    }, {
-      user:'Tinh Chikitori 3',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    },
-    {
-      user:'Tinh Chikitori 3',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    },
-    {
-      user:'Tinh Chikitori 3',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    },
-    {
-      user:'Tinh Chikitori 3',
-      createdAt:'8/10/2022 23:30',
-      content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
-    }]
   }
+}
+
+export const parseCommentsTicket =()=>{
+  return [{
+    user:'Tinh Chikitori',
+    createdAt:'8/10/2022 23:30',
+    content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
+  },
+  {
+    user:'Tinh Chikitori 2',
+    createdAt:'8/10/2022 23:30',
+    content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
+  },
+  {
+    user:'Tinh Chikitori 3',
+    createdAt:'8/10/2022 23:30',
+    content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
+  },
+  {
+    user:'Tinh Chikitori 4',
+    createdAt:'8/10/2022 23:30',
+    content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
+  }, {
+    user:'Tinh Chikitori 5',
+    createdAt:'8/10/2022 23:30',
+    content:'met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.'
+  },
+  ]
 }

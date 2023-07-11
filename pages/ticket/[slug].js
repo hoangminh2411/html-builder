@@ -1,6 +1,6 @@
 // @refresh reset
 
-import { headerHtml, headerScript, headerStyle, parseDataTicket, parseDataTicketList } from "../../configs/constants";
+import { headerHtml, headerScript, headerStyle, parseCommentsTicket, parseDataTicket, parseDataTicketList } from "../../configs/constants";
 
 
 export default function TicketViewPage({html, css, script, ticketId}) {
@@ -14,8 +14,11 @@ export default function TicketViewPage({html, css, script, ticketId}) {
 
 export async function getServerSideProps(context) {
   const {slug} = context.params
+
   const listTickets = parseDataTicketList()
   const responseData = parseDataTicket()
+  const commentsData = parseCommentsTicket()
+
   const jsdom = require("jsdom");
   const { JSDOM } = jsdom;
   const dom = new JSDOM(headerHtml);
@@ -28,28 +31,27 @@ export async function getServerSideProps(context) {
         case 'common':
           element.innerHTML = responseData[dataKey]
           break;
-        case 'comment':
-          let commentData = responseData[dataKey]
-      
-          element.outerHTML = commentData.map((comment,index)=>{
-            let defaultCommentComponent = element.cloneNode(true);
-            if(index !== 0) {
-              defaultCommentComponent.style="visibility:hidden"
-            } 
-            Object.keys(comment).forEach((commonKey)=>{
-              defaultCommentComponent.querySelector(`[data-key="${commonKey}"]`).innerHTML = comment[commonKey]
-              
-            })
-            return defaultCommentComponent.outerHTML
-          }).join('')
-        break;
         default:
           break;          
       }
      
     }  
   })
-
+  //get Comment Data
+  let commentsElement  = wrapper.querySelector(`[data-key="comment"]`)
+  if(commentsElement) {
+    commentsElement.outerHTML = commentsData.map((comment,index)=>{
+      let defaultCommentComponent = commentsElement.cloneNode(true);
+      if(index !== 0) {
+        defaultCommentComponent.setAttribute('hidden', true)
+      } 
+      Object.keys(comment).forEach((commonKey)=>{
+        defaultCommentComponent.querySelector(`[data-key="${commonKey}"]`).innerHTML = comment[commonKey]
+        
+      })
+      return defaultCommentComponent.outerHTML
+    }).join('')
+  }
   // List Data 
   let element =  wrapper.querySelector(`[data-type="list-common"]`)
   if(element) {
