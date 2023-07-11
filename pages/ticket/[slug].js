@@ -44,7 +44,7 @@ export async function getServerSideProps(context) {
       return defaultTicketComponent.outerHTML
     }).join('')
   }
-  
+
    //Write
    let formWriteElement = wrapper.querySelector(`[data-type="ticket-write"]`)
    if(formWriteElement) {
@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
 
   //get View Data
   Object.keys(responseData).forEach((dataKey)=>{
-    let element =  wrapper.querySelector(`[data-key="${dataKey}"]`)
+    let element =  wrapper.querySelector(`[data-key="${dataKey}"][data-type="common"]`)
     if(element) {
       switch(element.getAttribute('data-type')) {
         case 'common':
@@ -64,6 +64,8 @@ export async function getServerSideProps(context) {
           //get Edit component
           let editElement = wrapper.querySelector(`[data-key="${dataKey}-edit"]`)
           let formElement = wrapper.querySelector(`[name="${dataKey}"]`)
+          console.log("assignedUser formElement", formElement)
+          console.log("assignedUser editElement", editElement, `[data-key="${dataKey}-edit"]`)
           if(editElement && formElement ) {
             let editComponent = formElement.cloneNode(true)
             editComponent.style.width = '100%'

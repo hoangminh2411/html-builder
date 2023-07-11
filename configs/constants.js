@@ -128,7 +128,7 @@ export const parseDataTicket = () => {
   return {
     customer:'Tinh Chikitori',
     code: 'TIC-000001 Test',
-    channel:'Desk Email Test',
+    channel:'Direct Test',
     stage: 'New Test',
     status:'New Test',
     category:'Error /Product A Test',

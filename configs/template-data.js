@@ -136,14 +136,14 @@ export const headerHtml = `<html lang="en">
                           <div class="view" id="iwehh">
                             <p id="i6z5y" data-type="common" data-key="customer">Jenny Willson Acme co.</p>
                           </div>
-                          <div class="edit">
+                        <form class="edit">
                           <div data-key="customer-edit"> <input  /></div>
                          
                           <div class="button-group">
-                            <button class="button-save"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></button>
-                            <button class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+                            <button type="submit" class="button-save"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></button>
+                            <button type="button" class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
                           </div>
-                        </div>
+                        </form>
                         <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
                         </div>
                         <hr id="i2shi" />
@@ -154,6 +154,7 @@ export const headerHtml = `<html lang="en">
                           <div id="i6pj5">
                             <p data-type="common" data-key="code" id="ik5sx">Desk Email</p>
                           </div>
+                         
                         </div>
                         <hr id="io8o6" />
                         <div id="ixuye">
@@ -183,13 +184,22 @@ export const headerHtml = `<html lang="en">
                           </div>
                         </div>
                         <hr id="iz07o" />
-                        <div id="iswqj">
+                        <div id="iswqj"  class="common-view isViewing">
                           <label id="iq75b">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Assigned Rep</span>
                           </label>
-                          <div id="ith3w">
+                          <div class="view" id="ith3w">
                             <p id="indpi" data-type="common" data-key="assignedUser">Jenny Willson</p>
                           </div>
+                        <form class="edit">
+                          <div data-key="assignedUser-edit"> <input  /></div>
+                         
+                          <div class="button-group">
+                            <button type="submit" class="button-save"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></button>
+                            <button type="button" class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+                          </div>
+                        </form>
+                        <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
                         </div>
                         <hr id="ifqog" />
                         <div id="iz4zj">
@@ -1158,7 +1168,6 @@ body {
 #ith3w {
   min-height: 40px;
   padding: 8px;
-  display: flex;
   align-items: center;
   border: 1px dashed transparent;
   position: relative;
@@ -2129,15 +2138,17 @@ function onViewAllCommentClick () {
 
 }
 }
-const buttonEdit =  document.querySelector('.icon-edit')
-let btnCancle = document.querySelector(".button-cancle")
-buttonEdit.addEventListener('click',handleEditMode )
-btnCancle.addEventListener('click',handleEditMode )
-function handleEditMode() {
-  let viewComponent = buttonEdit.parentElement
-  viewComponent.classList.toggle("isViewing")
+const viewComponent = document.querySelectorAll('.common-view').forEach((Element)=>{
+  const buttonEdit =  Element.querySelector('.icon-edit')
+  let btnCancle = Element.querySelector(".button-cancle")
+  buttonEdit.addEventListener('click',handleEditMode )
+  btnCancle.addEventListener('click',handleEditMode )
+  function handleEditMode() {
+  
+  Element.classList.toggle("isViewing")
 
   console.log("viewComponent",viewComponent)
 }
+})
 
 </script>`
