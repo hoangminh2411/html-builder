@@ -1,6 +1,9 @@
 // @refresh reset
 
-import { headerHtml, headerScript, headerStyle, parseCommentsTicket, parseDataTicket, parseDataTicketList } from "../../configs/constants";
+import { parseCommentsTicket, parseDataTicket, parseDataTicketList } from "../../configs/constants"
+import { headerHtml, headerScript, headerStyle } from "../../configs/template-data"
+import { getTicketForm } from "../../configs/ticket-form-html"
+
 
 
 export default function TicketViewPage({html, css, script, ticketId}) {
@@ -23,13 +26,31 @@ export async function getServerSideProps(context) {
   const { JSDOM } = jsdom;
   const dom = new JSDOM(headerHtml);
   const wrapper = dom.window.document.querySelector('#root')
+
+   //Write
+   let formWriteElement = wrapper.querySelector(`[data-type="ticket-write"]`)
+   if(formWriteElement) {
+     let formSouceId =  formWriteElement.getAttribute('source')
+     let htmlForm =  getTicketForm(formSouceId)
+     formWriteElement.outerHTML = htmlForm
+   }
+
   //get View Data
   Object.keys(responseData).forEach((dataKey)=>{
     let element =  wrapper.querySelector(`[data-key="${dataKey}"]`)
     if(element) {
       switch(element.getAttribute('data-type')) {
         case 'common':
+         
           element.innerHTML = responseData[dataKey]
+          //get Edit component
+          let editElement = wrapper.querySelector(`[data-key="${dataKey}-edit"]`)
+          let formElement = wrapper.querySelector(`[name="${dataKey}"]`)
+          if(editElement && formElement ) {
+            let editComponent = formElement.cloneNode(true)
+            editComponent.style.width = '100%'
+            editElement.innerHTML = editComponent.outerHTML
+          }
           break;
         default:
           break;          
@@ -70,6 +91,8 @@ export async function getServerSideProps(context) {
       return defaultTicketComponent.outerHTML
     }).join('')
   }
+
+ 
   
   // console.log(dom.window.document.querySelector('[data-ticket="subject"]').textContent); // "Hello world"
   
