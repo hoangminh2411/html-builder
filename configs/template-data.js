@@ -1,7 +1,7 @@
 export const headerHtml = `<html lang="en">
 <head>
   <title>Desk ticket</title>
- 
+  <link rel="stylesheet" href="./css.css">
   <link rel="stylesheet" href="./webkit_toolbar.css">
   <style>
     @import url(https://fonts.bunny.net/css?family=roboto:300,400,500,700);
@@ -21,6 +21,8 @@ export const headerHtml = `<html lang="en">
   <style>
     @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
   </style>
+   <!-- Editor's Style -->
+   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
 <body>
   <div id="root" classname="scroll-box">
@@ -135,10 +137,10 @@ export const headerHtml = `<html lang="en">
                           </label>
                           <div class="editable isViewing">
                           <div class="view" id="iwehh">
-                            <p id="i6z5y" data-type="common" data-key="customer">Jenny Willson Acme co.</p>
+                            <p id="i6z5y" data-type="view-common" data-key="customer-view">Jenny Willson Acme co.</p>
                           </div>
                           <div>
-                        <form data-type="ticket-update" class="edit">
+                        <form class="edit">
                           <div data-key="customer-edit"> <input  /></div>
                          
                           <div class="button-group">
@@ -157,7 +159,7 @@ export const headerHtml = `<html lang="en">
                             <span class="field-label">Ticket ID</span>
                           </label>
                           <div id="i6pj5">
-                            <p data-type="common" data-key="code" id="ik5sx">Desk Email</p>
+                            <p data-type="view-common" data-key="code-view" id="ik5sx">Desk Email</p>
                           </div>
                          
                         </div>
@@ -167,7 +169,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Stage</span>
                           </label>
                           <div id="ix1fj">
-                            <p id="imexm" data-type="common" data-key="stage">New</p>
+                            <p id="imexm" data-type="view-common" data-key="stage-view">New</p>
                           </div>
                         </div>
                         <hr id="idzri" />
@@ -176,7 +178,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Status</span>
                           </label>
                           <div id="i0sj7">
-                            <p id="i1x8n" data-type="common" data-key="status">New</p>
+                            <p id="i1x8n" data-type="view-common" data-key="status-view">New</p>
                           </div>
                         </div>
                         <hr id="ie0es" />
@@ -185,7 +187,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Category</span>
                           </label>
                           <div id="iqc6x">
-                            <p id="icquj" data-type="common" data-key="category">Error /Product A</p>
+                            <p id="icquj" data-type="view-common" data-key="category-view">Error /Product A</p>
                           </div>
                         </div>
                         <hr id="iz07o" />
@@ -195,9 +197,9 @@ export const headerHtml = `<html lang="en">
                           </label>
                           <div class="editable isViewing">
                           <div class="view" id="ith3w">
-                            <p id="indpi" data-type="common" data-key="assignedUser">Jenny Willson</p>
+                            <p id="indpi" data-type="view-common" data-key="assignedUser-view">Jenny Willson</p>
                           </div>
-                        <form data-type="ticket-update" class="edit">
+                        <form class="edit">
                           <div data-key="assignedUser-edit"> <input  /></div>
                          
                           <div class="button-group">
@@ -214,7 +216,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Created On</span>
                           </label>
                           <div id="irimx">
-                            <p id="iqxlg" data-type="common" data-key="createdAt">6/23/2023 09:03</p>
+                            <p id="iqxlg" data-type="view-common" data-key="createdAt-view">6/23/2023 09:03</p>
                           </div>
                         </div>
                         <hr id="idjm9" />
@@ -223,7 +225,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">1st Response Due</span>
                           </label>
                           <div id="ig11g">
-                            <p id="i6jri" data-type="common" data-key="firstRespondDue">6/23/2023 09:03</p>
+                            <p id="i6jri" data-type="view-common" data-key="firstRespondDue-view">6/23/2023 09:03</p>
                           </div>
                         </div>
                         <hr id="iugzx3" />
@@ -232,7 +234,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Resolved Date</span>
                           </label>
                           <div id="is41tv">
-                            <p data-type="common" data-key="resolvedDate" id="iij7vi">6/24/2023 09:03</p>
+                            <p data-type="view-common" data-key="resolvedDate-view" id="iij7vi">6/24/2023 09:03</p>
                           </div>
                         </div>
                         <hr id="i55ian" />
@@ -241,7 +243,7 @@ export const headerHtml = `<html lang="en">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Closed On</span>
                           </label>
                           <div id="iq3mal">
-                            <p data-type="common" data-key="closedAt" id="iwsqvr">6/24/2023 09:03</p>
+                            <p data-type="view-common" data-key="closedAt-view" id="iwsqvr">6/24/2023 09:03</p>
                           </div>
                         </div>
                         <hr id="i0q4yo" />
@@ -260,12 +262,12 @@ export const headerHtml = `<html lang="en">
                   </div>
                 </div>
                 <div id="isc57k">
-                  <div data-type="common" data-key="content">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+                  <div data-type="view-common" data-key="content-view">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
                   <div id="ibvg3z">Response</div>
-                  <div id="ixups4" data-type="respone">
+                  <div id="ixups4" data-type="respone-view">
                     <div id="iu155y">
                       <div id="i3kwmq">
-                        <h6 id="ii3zwl" data-key="user">MSR</h6>
+                        <h6 id="ii3zwl" data-key="user-view">MSR</h6>
                         <span class="comment-time" data-key="createdAt">8/10/2022 23:30</span>
                       </div>
                       <div data-key="content">met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div>
@@ -278,7 +280,7 @@ export const headerHtml = `<html lang="en">
                   <div id="desk-comment">
                   <div id="iyns3y">Comment</div>
                   <div id="iiz0fj">
-                    <div data-type="comment" >
+                    <div data-type="comment-view" >
                       <div class="item-container"  data-key="comment">
                         <div class="item-header">
                           <h6 data-key="user" class="user-title">MSR</h6>
@@ -310,6 +312,8 @@ export const headerHtml = `<html lang="en">
     </div>
 <!-- The Modal -->
 <div id="myModal" class="modal">
+  <form data-type="ticket-create" class="form-container" id="ih8p">
+
       <!-- <button id="buttonCloseDialog" onClick="myModal.close()">
       Close
     </button> -->
@@ -322,16 +326,19 @@ export const headerHtml = `<html lang="en">
     </div>
     <div class="modal-body scroll-box">
       <div id="editor"></div>
-      <form data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</form>
+      <div data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</div>
     </div>
     <div class="modal-footer">
-      <button id="buttonCloseDialog">Cancel</button>
-      <button id="buttonSaveDialog" class="save-btn">Save</button>
+      <button id="buttonCloseDialog" type="button">Cancel</button>
+      <button id="buttonSaveDialog" class="save-btn" type="submit" value="Submit">Save</button>
     </div>
   </div>
-  </div>
+</form>
+</div>
+
   </div>
   <script src="script.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 </body>
 </html>`
 
