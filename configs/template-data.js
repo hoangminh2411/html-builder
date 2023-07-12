@@ -3,26 +3,6 @@ export const headerHtml = `<html lang="en">
   <title>Desk ticket</title>
   <link rel="stylesheet" href="./css.css">
   <link rel="stylesheet" href="./webkit_toolbar.css">
-  <style>
-    @import url(https://fonts.bunny.net/css?family=roboto:300,400,500,700);import
-  </style>
-  <style>
-    @import url(https://fonts.bunny.net/css?family=noto-sans-kr:300,400,500,700);
-  </style>
-  <style>
-    @import url(https://fonts.bunny.net/css?family=inter:300,400,500,700);
-  </style>
-  <style>
-    @import url(https://fonts.bunny.net/css?family=noto-sans:300,400,500,700);
-  </style>
-  <style>
-    @import url(https://fonts.bunny.net/css?family=ibm-plex-sans:300,400,500,700);
-  </style>
-  <style>
-    @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
-  </style>
-   <!-- Editor's Style -->
-   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastuimporti-editor.min.css" />
 </head>
 <body>
   <div id="root" classname="scroll-box">
@@ -325,7 +305,6 @@ export const headerHtml = `<html lang="en">
       <span class="close">&times;</span>
     </div>
     <div class="modal-body scroll-box">
-      <div id="editor"></div>
       <div data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</div>
     </div>
     <div class="modal-footer">
@@ -669,7 +648,7 @@ body {
 .modal-title {
   font-weight: 500;
 }
-.modal-body {padding: 2px 16px;  height: 700px;
+.modal-body {padding: 2px 16px;  height: 700px; overflow:auto
 }
 
 .modal-footer {
