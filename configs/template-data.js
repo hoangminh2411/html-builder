@@ -4,7 +4,7 @@ export const headerHtml = `<html lang="en">
   <link rel="stylesheet" href="./css.css">
   <link rel="stylesheet" href="./webkit_toolbar.css">
   <style>
-    @import url(https://fonts.bunny.net/css?family=roboto:300,400,500,700);
+    @import url(https://fonts.bunny.net/css?family=roboto:300,400,500,700);import
   </style>
   <style>
     @import url(https://fonts.bunny.net/css?family=noto-sans-kr:300,400,500,700);
@@ -22,7 +22,7 @@ export const headerHtml = `<html lang="en">
     @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
   </style>
    <!-- Editor's Style -->
-   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastuimporti-editor.min.css" />
 </head>
 <body>
   <div id="root" classname="scroll-box">
