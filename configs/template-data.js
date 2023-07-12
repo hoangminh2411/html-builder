@@ -1,7 +1,7 @@
 export const headerHtml = `<html lang="en">
 <head>
   <title>Desk ticket</title>
-  <link rel="stylesheet" href="./css.css">
+ 
   <link rel="stylesheet" href="./webkit_toolbar.css">
   <style>
     @import url(https://fonts.bunny.net/css?family=roboto:300,400,500,700);
@@ -21,8 +21,6 @@ export const headerHtml = `<html lang="en">
   <style>
     @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
   </style>
-   <!-- Editor's Style -->
-   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
 <body>
   <div id="root" classname="scroll-box">
@@ -131,16 +129,16 @@ export const headerHtml = `<html lang="en">
                   <div id="ibzq3">
                     <div id="i8yg5">
                       <div id="ipcma">
-                        <div class="view-field-container" data-type="view-field" >
+                        <div class="view-field-container" >
                           <label class="view-field-label-container">
-                            <span data-key="view-field-label" class="field-label">Customer</span>
+                            <span  class="field-label">Customer</span>
                           </label>
                           <div class="editable isViewing">
                           <div class="view" id="iwehh">
-                            <p id="i6z5y" data-type="common" data-key="view-field-value">Jenny Willson Acme co.</p>
+                            <p id="i6z5y" data-type="common" data-key="customer">Jenny Willson Acme co.</p>
                           </div>
                           <div>
-                        <form class="edit">
+                        <form data-type="ticket-update" class="edit">
                           <div data-key="customer-edit"> <input  /></div>
                          
                           <div class="button-group">
@@ -156,7 +154,7 @@ export const headerHtml = `<html lang="en">
                         <hr id="i2shi" />
                         <div class="view-field-container">
                           <label class="view-field-label-container">
-                            <span data-key="languageKey" class="field-label">Ticket ID</span>
+                            <span class="field-label">Ticket ID</span>
                           </label>
                           <div id="i6pj5">
                             <p data-type="common" data-key="code" id="ik5sx">Desk Email</p>
@@ -199,7 +197,7 @@ export const headerHtml = `<html lang="en">
                           <div class="view" id="ith3w">
                             <p id="indpi" data-type="common" data-key="assignedUser">Jenny Willson</p>
                           </div>
-                        <form class="edit">
+                        <form data-type="ticket-update" class="edit">
                           <div data-key="assignedUser-edit"> <input  /></div>
                          
                           <div class="button-group">
@@ -323,6 +321,7 @@ export const headerHtml = `<html lang="en">
       <span class="close">&times;</span>
     </div>
     <div class="modal-body scroll-box">
+      <div id="editor"></div>
       <form data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</form>
     </div>
     <div class="modal-footer">
@@ -333,7 +332,6 @@ export const headerHtml = `<html lang="en">
   </div>
   </div>
   <script src="script.js"></script>
-  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 </body>
 </html>`
 
@@ -412,8 +410,6 @@ body {
 }
 .editable {
   min-height: 40px;
-  padding: 8px;
-  display: flex;
   border: 1px dashed transparent;
   position: relative;
   cursor: pointer;
@@ -2328,14 +2324,5 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-const Editor = require('@toast-ui/editor');
 
-const editor = new Editor({
-  el: document.querySelector('#editor'),
-  height: '500px',
-  initialEditType: 'markdown',
-  previewStyle: 'vertical'
-});
-
-editor.getMarkdown();
 </script>`

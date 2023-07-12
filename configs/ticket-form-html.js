@@ -1,5 +1,5 @@
 export const getTicketForm =(id) =>{
-  const formData = ` <form class="form-container" id="ih8p">
+  const formData = ` <form data-type="ticket-create" class="form-container" id="ih8p">
   <div class="form-field" id="ith43">
     <label data-mytext="MyText">Subject<span data-mytext="MyText" id="i0s88">*</span></label>
     <input type="text" name="subject" required id="igt4p"/>

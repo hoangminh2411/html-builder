@@ -1,5 +1,5 @@
 // @refresh reset
-
+import { useEffect } from "react"
 import { parseCommentsTicket, parseDataTicket, parseDataTicketList } from "../../configs/constants"
 import { headerHtml, headerScript, headerStyle } from "../../configs/template-data"
 import { getTicketForm } from "../../configs/ticket-form-html"
@@ -7,6 +7,46 @@ import { getTicketForm } from "../../configs/ticket-form-html"
 
 
 export default function TicketViewPage({html, css, script, ticketId}) {
+  const handleSubmitTicketForm = ()=>{
+
+  }
+  useEffect(()=>{
+    if(html) {
+      //Form Create
+      const formWriteElement = document.querySelector(`[data-type="ticket-create"]`)
+      console.log("formWriteElement",formWriteElement)
+      //Add action submit form Write
+      if(formWriteElement) {
+        formWriteElement.addEventListener('submit', (event) => {
+          const form = event.target;
+          const data = new FormData(form);
+          // const newParams = finalizeParams(data);
+          alert('ticket data created successfully')
+          // mutationAdd(newParams);
+          //Prvent the submit event
+          event.preventDefault();
+          event.stopPropagation();
+          return false;
+        });
+      }
+      
+      //Form Update
+      document.querySelectorAll(`[data-type="ticket-update"]`).forEach((Element)=>{
+        Element.addEventListener('submit', (event) => {
+          const form = event.target;
+          const data = new FormData(form);
+          // const newParams = finalizeParams(data);
+          alert('ticket data updated successfully')
+          // mutationAdd(newParams);
+          //Prvent the submit event
+          event.preventDefault();
+          event.stopPropagation();
+          return false;
+        });
+      })
+    }
+  },[])
+
   return (
     <>
         Ticket ID: {ticketId}
