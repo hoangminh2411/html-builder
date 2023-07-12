@@ -95,10 +95,10 @@ export async function getServerSideProps(context) {
 
   //get View Data
   Object.keys(responseData).forEach((dataKey)=>{
-    let element =  wrapper.querySelector(`[data-key="${dataKey}"][data-type="common"]`)
+    let element =  wrapper.querySelector(`[data-key="${dataKey}-view"][data-type="view-common"]`)
     if(element) {
       switch(element.getAttribute('data-type')) {
-        case 'common':
+        case 'view-common':
          
           element.innerHTML = responseData[dataKey]
           //get Edit component
