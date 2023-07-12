@@ -21,6 +21,8 @@ export const headerHtml = `<html lang="en">
   <style>
     @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
   </style>
+   <!-- Editor's Style -->
+   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
 <body>
   <div id="root" classname="scroll-box">
@@ -47,7 +49,7 @@ export const headerHtml = `<html lang="en">
     </div>
     <div id="i8361">
       <div id="ih6ef">
-        <button  onClick="myDialog.showModal()" class="add-btn">Add</button>
+        <button  id="myBtn" class="add-btn">Add</button>
         <div id="i5r1d">
           <input type="text" placeholder="Search..." value="" id="i4erq" />
           <svg aria-hidden="true" viewBox="0 0 24 24" data-testid="SearchIcon" id="io3sw">
@@ -129,13 +131,15 @@ export const headerHtml = `<html lang="en">
                   <div id="ibzq3">
                     <div id="i8yg5">
                       <div id="ipcma">
-                        <div id="iven2" class="common-view isViewing">
-                          <label id="if2ii">
-                            <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Customer</span>
+                        <div class="view-field-container" data-type="view-field" >
+                          <label class="view-field-label-container">
+                            <span data-key="view-field-label" class="field-label">Customer</span>
                           </label>
+                          <div class="editable isViewing">
                           <div class="view" id="iwehh">
-                            <p id="i6z5y" data-type="common" data-key="customer">Jenny Willson Acme co.</p>
+                            <p id="i6z5y" data-type="common" data-key="view-field-value">Jenny Willson Acme co.</p>
                           </div>
+                          <div>
                         <form class="edit">
                           <div data-key="customer-edit"> <input  /></div>
                          
@@ -144,12 +148,15 @@ export const headerHtml = `<html lang="en">
                             <button type="button" class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
                           </div>
                         </form>
+                      </div>
                         <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
+                          </div>
                         </div>
+
                         <hr id="i2shi" />
-                        <div id="ia21j">
-                          <label id="ihr1p">
-                            <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Ticket ID</span>
+                        <div class="view-field-container">
+                          <label class="view-field-label-container">
+                            <span data-key="languageKey" class="field-label">Ticket ID</span>
                           </label>
                           <div id="i6pj5">
                             <p data-type="common" data-key="code" id="ik5sx">Desk Email</p>
@@ -184,10 +191,11 @@ export const headerHtml = `<html lang="en">
                           </div>
                         </div>
                         <hr id="iz07o" />
-                        <div id="iswqj"  class="common-view isViewing">
+                        <div id="iswqj">
                           <label id="iq75b">
                             <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Assigned Rep</span>
                           </label>
+                          <div class="editable isViewing">
                           <div class="view" id="ith3w">
                             <p id="indpi" data-type="common" data-key="assignedUser">Jenny Willson</p>
                           </div>
@@ -200,6 +208,7 @@ export const headerHtml = `<html lang="en">
                           </div>
                         </form>
                         <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
+                          </div>
                         </div>
                         <hr id="ifqog" />
                         <div id="iz4zj">
@@ -301,14 +310,30 @@ export const headerHtml = `<html lang="en">
         </div>
       </div>
     </div>
-    <dialog  id="myDialog">
-    <form data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</form>
-    <button id="buttonCloseDialog" onClick="myDialog.close()">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+      <!-- <button id="buttonCloseDialog" onClick="myModal.close()">
       Close
-    </button>
-  </dialog>
+    </button> -->
+
+    <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <p class="modal-title">Modal Header</p>
+      <span class="close">&times;</span>
+    </div>
+    <div class="modal-body scroll-box">
+      <form data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</form>
+    </div>
+    <div class="modal-footer">
+      <button id="buttonCloseDialog">Cancel</button>
+      <button id="buttonSaveDialog" class="save-btn">Save</button>
+    </div>
+  </div>
+  </div>
   </div>
   <script src="script.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 </body>
 </html>`
 
@@ -385,7 +410,7 @@ body {
   --color-orange: #fa8c16;
   --separator-border: #f0f0f0!important;
 }
-.common-view {
+.editable {
   min-height: 40px;
   padding: 8px;
   display: flex;
@@ -397,14 +422,14 @@ body {
   display:none
 }
 
-.common-view.isViewing .view {
+.editable.isViewing .view {
   display:block;
 }
-.common-view.isViewing .edit {
+.editable.isViewing .edit {
   display:none;
 }
 
-.common-view.isViewing:hover{
+.editable.isViewing:hover{
   border: 1px dashed rgb(140, 140, 140);
   border-radius: 5px;
 }
@@ -416,7 +441,7 @@ body {
   transform: translateY(-50%);
   transition: all 0.3s ease 0s;
 }
-.common-view.isViewing:hover .icon-edit {
+.editable.isViewing:hover .icon-edit {
   display: initial;
   right: 10px;
 }
@@ -521,15 +546,139 @@ body {
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.33929rem;
 }
-#buttonCloseDialog {
-  position: absolute;
+
+/* WRITE PAGE CSS */
+#myModal { 
+  display: none; 
+  position: fixed; 
+  flex-direction: column;
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
   top: 0;
-  right: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border-radius: 4px;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+
 }
-#myDialog { 
-  border:none;
-  padding:0px;
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  border-radius: 4px 4px 0px 0px;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
 }
+/* The Close Button */
+.close {
+  color: white;
+  margin-left: auto;
+  font-size: 28px;
+  font-weight: bold;
+}
+#buttonCloseDialog {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Roboto, sans-serif;
+  font-size: 0.870536rem;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgb(140, 140, 140);
+  color: rgb(140, 140, 140);
+  box-shadow: none;
+  font-weight: 400;
+
+}
+.save-btn {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Roboto, sans-serif;
+  font-size: 0.870536rem;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: rgb(255, 255, 255);
+  background-color: rgb(24, 144, 255);
+  box-shadow: none;
+  font-weight: 400;
+  height: 32px;
+}
+.close:hover,
+.close:focus {
+  /* color: #000;
+  text-decoration: none; */
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  border-radius: 4px 4px 0px 0px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.modal-title {
+  font-weight: 500;
+}
+.modal-body {padding: 2px 16px;  height: 700px;
+}
+
+.modal-footer {
+  padding: 16px 16px;
+  background-color: white;
+  /* color: white; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* END WRITE PAGE CSS */
 #isbj {
   border-bottom: 1px solid rgb(240, 240, 240);
   max-height: 49px;
@@ -961,12 +1110,12 @@ body {
   width: 100%;
   position: relative;
 }
-#ia21j {
+.view-field-container {
   display: flex;
   flex-direction: column;
   padding: 8px;
 }
-#ihr1p {
+.view-field-label-container {
   color: rgb(140, 140, 140);
   font-size: 0.875rem;
   line-height: 1.4375em;
@@ -2138,7 +2287,7 @@ function onViewAllCommentClick () {
 
 }
 }
-const viewComponent = document.querySelectorAll('.common-view').forEach((Element)=>{
+const viewComponent = document.querySelectorAll('.editable').forEach((Element)=>{
   const buttonEdit =  Element.querySelector('.icon-edit')
   let btnCancle = Element.querySelector(".button-cancle")
   buttonEdit.addEventListener('click',handleEditMode )
@@ -2151,4 +2300,42 @@ const viewComponent = document.querySelectorAll('.common-view').forEach((Element
 }
 })
 
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+//get the cancel button
+var cancelBtn = document.querySelector("#buttonCloseDialog");
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+cancelBtn.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+const Editor = require('@toast-ui/editor');
+
+const editor = new Editor({
+  el: document.querySelector('#editor'),
+  height: '500px',
+  initialEditType: 'markdown',
+  previewStyle: 'vertical'
+});
+
+editor.getMarkdown();
 </script>`

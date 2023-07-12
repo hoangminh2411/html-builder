@@ -207,15 +207,139 @@ body {
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-size: 1.33929rem;
 }
-#buttonCloseDialog {
-  position: absolute;
+
+/* WRITE PAGE CSS */
+#myModal { 
+  display: none; 
+  position: fixed; 
+  flex-direction: column;
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
   top: 0;
-  right: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border-radius: 4px;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+
 }
-#myDialog { 
-  border:none;
-  padding:0px;
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  border-radius: 4px 4px 0px 0px;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
 }
+/* The Close Button */
+.close {
+  color: white;
+  margin-left: auto;
+  font-size: 28px;
+  font-weight: bold;
+}
+#buttonCloseDialog {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Roboto, sans-serif;
+  font-size: 0.870536rem;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgb(140, 140, 140);
+  color: rgb(140, 140, 140);
+  box-shadow: none;
+  font-weight: 400;
+
+}
+.save-btn {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Roboto, sans-serif;
+  font-size: 0.870536rem;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: rgb(255, 255, 255);
+  background-color: rgb(24, 144, 255);
+  box-shadow: none;
+  font-weight: 400;
+  height: 32px;
+}
+.close:hover,
+.close:focus {
+  /* color: #000;
+  text-decoration: none; */
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  border-radius: 4px 4px 0px 0px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.modal-title {
+  font-weight: 500;
+}
+.modal-body {padding: 2px 16px;  height: 700px;
+}
+
+.modal-footer {
+  padding: 16px 16px;
+  background-color: white;
+  /* color: white; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* END WRITE PAGE CSS */
 #isbj {
   border-bottom: 1px solid rgb(240, 240, 240);
   max-height: 49px;
