@@ -18,7 +18,7 @@ export const getTicketForm =(id) =>{
     <div class="form-cell" id="i7lh9">
       <div class="form-field" id="ie098">
         <label data-mytext="MyText" id="iyvmj">Issue</label>
-        <select type="text" id="iqw6l" data-key="issue-write" name="issue"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+        <select type="text" id="iqw6l" data-key="category-write" name="category"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
       </div>
     </div>
     <div class="form-cell" id="if5jc">
@@ -30,25 +30,16 @@ export const getTicketForm =(id) =>{
   </div>
   <div data-mytext="MyText" id="inojh">Classification
   </div>
+  <input hidden type="value" name="classifications" data-key="classifications-write" />
   <div class="form-row" id="iwfe7">
     <div class="form-cell" id="ibmij">
       <div class="form-field" id="ihp1a">
         <label data-mytext="MyText" id="iipvl">Classification</label>
-        <select type="text" id="izosb"><option value="language">Language</option>&lt;</select>
-      </div>
-      <div id="in81k">
-        <select type="text" id="iknvt"><option value="region">Region</option></select>
+        <select data-key="classification"  id="izosb"><option value="language">Language</option>&lt;</select>
+        <select type="text" id="i2u2m" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
       </div>
     </div>
-    <div class="form-cell" id="i28yu">
-      <div class="form-field" id="ivmum">
-        <label data-mytext="MyText" id="ij1i2">Value</label>
-        <select type="text" id="i2u2m" data-key="language-write" name="language"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
-      </div>
-      <div id="ihe3a">
-        <select type="text" id="in9wy" data-key="region-write" name="region"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
-      </div>
-    </div>
+ 
   </div>
   <div class="form-field" id="irrur">
     <label data-mytext="MyText" id="i403p">Content</label>
@@ -632,6 +623,5 @@ export const getTicketForm =(id) =>{
   }
   
   </style>`
-
   return cssFormData  +  formData
 }
