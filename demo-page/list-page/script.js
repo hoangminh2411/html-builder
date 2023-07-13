@@ -1,46 +1,129 @@
+/**
+ * groupBy
+ * sortBy
+ * SortField
+ * search
+ * page
+ * pageSize
+ * priority
+ * resolvedDate
+ * firstResponseDate
+ * closedAt
+ * updatedAt
+ * createdAt
+ * classfication
+ * category
+ * priority
+ */
+
+// An array to store the IDs of selected tickets
 let ticketIds = []
+
+// An object defining columns for different grouping options
 const columnsByGroupBy = {
-  resolved: ['subject', 'category','stage','status','assignedUser', 'resolvedDate'],
-  closed:['subject', 'category','stage','status','assignedUser', 'closedAt'],
-  my:['subject', 'category','stage','status','assignedUser','resolvedDate', 'closedAt'],
-  myResolved: ['subject', 'category','stage','status','assignedUser', 'resolvedDate'],
-  myClosed:['subject', 'category','stage','status','assignedUser', 'closedAt'],
+  resolved: ['subject', 'category', 'stage', 'status', 'assignedUser', 'resolvedDate'],
+  closed: ['subject', 'category', 'stage', 'status', 'assignedUser', 'closedAt'],
+  my: ['subject', 'category', 'stage', 'status', 'assignedUser', 'resolvedDate', 'closedAt'],
+  myResolved: ['subject', 'category', 'stage', 'status', 'assignedUser', 'resolvedDate'],
+  myClosed: ['subject', 'category', 'stage', 'status', 'assignedUser', 'closedAt'],
 }
 
+// Get the query string from the URL
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-console.log(`~~~~ queryString`,queryString);
-if (queryString !=='') {
-  const allFilter = document.querySelectorAll('.filter');
-  Array.from(allFilter).map((filter)=>{
-    const filterType = filter.classList[1];
-    console.log(`filterType`,filterType)
-    const oldHref = filter.getAttribute("href");
-    console.log(`oldhref`,oldHref);
-
-    const paramsState = urlParams.get(filterType)
-    console.log(`paramsState`,paramsState)
-    if(paramsState == null) {   filter.setAttribute('href',`${queryString}&&${oldHref}`)}  
-    
-  })
+const updateLayoutWithQuery = (key, value, Element) => {
+  switch (key) {
+    case 'groupBy':
+      let filterSelectedElement = document.querySelector("." + key + ".selected")
+      if (filterSelectedElement) {
+        filterSelectedElement.innerHTML = Element.innerHTML + '&dtrif;'
+      }
+      break;
+    case 'sortBy':
+      Element.parentNode.classList.add("selected")
+      break;
+    case 'subject':
+      let searchInputElement = Element.querySelector('input')
+      if (searchInputElement) {
+        searchInputElement.value = value
+        searchInputElement.setAttribute("value", value)
+      }
+    case 'pageSize':
+      let pageSizeElement = document.querySelector("." + key + ".selected")
+      if (pageSizeElement) {
+        pageSizeElement.innerHTML = Element.innerHTML + '&dtrif;'
+      }
+    default:
+      break;
+  }
 }
 
+const getFilterQuery = (filterKey, filterValue, Element) => {
+  let initSearchParam = '?' + filterKey + '=' + filterValue;
+  for (const key of urlParams.keys()) {
+    if (key !== filterKey) {
+      initSearchParam += '&&' + key + '=' + urlParams.get(key)
+    } else if (key == filterKey && filterValue == urlParams.get(key)) {
+      //Add selected or default value with query value from param
+      updateLayoutWithQuery(filterKey, filterValue, Element)
+    }
+  }
+
+  return initSearchParam
+}
+
+
+//Initial Href for filter parameters
+const allFilterLink = document.querySelectorAll('.filter');
+Array.from(allFilterLink).forEach((Element) => {
+  const filterKey = Element.classList[1];
+  const filterValue = Element.getAttribute('href')
+  let initSearchParam = getFilterQuery(filterKey, filterValue, Element)
+
+  Element.href = initSearchParam
+})
+
+const filterSearchElement = document.querySelector('.search-form')
+updateLayoutWithQuery('subject', urlParams.get('subject'), filterSearchElement)
+
+filterSearchElement.addEventListener('submit', (event) => {
+  const formData = new FormData(filterSearchElement);
+  const filterKey = 'subject';
+  const filterValue = formData.get('subject')
+  let initSearchParam = getFilterQuery(filterKey, filterValue, filterSearchElement)
+  window.location.search = initSearchParam
+
+
+  event.preventDefault();
+  event.stopPropagation();
+})
+
+
+// Get the groupBy parameter from the query string
 const groupBy = urlParams.get('groupBy')
+
+// Determine the table columns based on the groupBy parameter
 let tablesColumns = columnsByGroupBy['my'];
-if(groupBy && Object.keys(columnsByGroupBy).includes(groupBy)) {
+if (groupBy && Object.keys(columnsByGroupBy).includes(groupBy)) {
   tablesColumns = columnsByGroupBy[groupBy]
 }
-tablesColumns.forEach((column)=>{
-  let dataKey  = "[data-key="+column+"]";
-  document.querySelectorAll(dataKey+"[data-type=column-list]").forEach((Element)=>{
+
+// Toggle the visibility of columns based on the tableColumns
+tablesColumns.forEach((column) => {
+  let dataKey = "[data-key=" + column + "]";
+  document.querySelectorAll(dataKey + "[data-type=column-list]").forEach((Element) => {
     Element.classList.toggle("hidden")
   })
 })
+
+// Select all checkbox elements and overall checkbox element
 const allCheckboxs = document.querySelectorAll('[data-key=select-list]');
-const overallCheckbox  = document.querySelector("#all-checkbox")
-function updateDisplay (ticketIds) {
-  if(overallCheckbox){
+const overallCheckbox = document.querySelector("#all-checkbox")
+
+// Function to update the display based on selected checkboxes
+function updateDisplay(ticketIds) {
+  if (overallCheckbox) {
     if (ticketIds.length === 0) {
       overallCheckbox.checked = false;
       overallCheckbox.indeterminate = false;
@@ -52,12 +135,12 @@ function updateDisplay (ticketIds) {
       overallCheckbox.indeterminate = true;
     }
     let bottomToolbar = document.querySelector('.bottom-toolbar-container')
-    if(ticketIds.length > 0) {     
-        bottomToolbar.classList.remove("hidden")
+    if (ticketIds.length > 0) {
+      bottomToolbar.classList.remove("hidden")
     } else {
       bottomToolbar.classList.add("hidden")
     }
-  
+
     // allCheckBoxElement.addEventListener((event)=>{
     //   if(event.target.checked) {
     //     document.querySelectorAll('[data-key=select-list]').forEach((Element)=>{
@@ -67,35 +150,38 @@ function updateDisplay (ticketIds) {
     // })
   }
 }
-function saveIdChecked (ticketIds) {
+function saveIdChecked(ticketIds) {
   let ticketIdsElement = document.querySelector("#ticketIds")
-  ticketIdsElement.setAttribute('value',JSON.stringify(ticketIds))
+  ticketIdsElement.setAttribute('value', JSON.stringify(ticketIds))
   ticketIdsElement.value = JSON.stringify(ticketIds)
 }
-allCheckboxs.forEach((Element)=>{
+
+// Add change event listener to each checkbox
+allCheckboxs.forEach((Element) => {
   let ticketId = Element.getAttribute('value')
-  Element.addEventListener("change",(event)=>{
-    if(event.target.checked ) {
+  Element.addEventListener("change", (event) => {
+    if (event.target.checked) {
       ticketIds.push(ticketId)
     } else {
-      ticketIds = ticketIds.filter((id)=> id !== ticketId)
+      ticketIds = ticketIds.filter((id) => id !== ticketId)
     }
 
- 
+
     saveIdChecked(ticketIds)
     updateDisplay(ticketIds);
   })
 })
 
-overallCheckbox.addEventListener("change",(event)=>{
+// Add change event listener to the overall checkbox
+overallCheckbox.addEventListener("change", (event) => {
   let newIds = [];
-  if(event.target.checked) { 
-    allCheckboxs.forEach((Element)=>{
+  if (event.target.checked) {
+    allCheckboxs.forEach((Element) => {
       Element.checked = true;
       newIds.push(Element.value)
     })
   } else {
-    allCheckboxs.forEach((Element)=>{
+    allCheckboxs.forEach((Element) => {
       Element.checked = false;
     })
   }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="./css.css">
   <link rel="stylesheet" href="./webkit_toolbar.css">
@@ -21,115 +22,210 @@
   <style>
     @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
   </style>
-   <!-- Editor's Style -->
+  <!-- Editor's Style -->
 </head>
+
 <body>
-<div class="toolbar-container">
-  <div class="toolbar-container-left">
-    <!-- Filter -->
-    <nav role="navigation" class="primary-navigation">
-      <ul>
-        <li><a href="#">Group By &dtrif;</a>
-          <ul class="dropdown">
-            <li><a class="filter groupBy"  href="?groupBy=all"> All Tickets</a></li>
-            <li><a class="filter groupBy"  href="?groupBy=resolved">Resolved Tickets</a></li>
-            <li><a class="filter groupBy"  href="?groupBy=closed">Closed Tickets</a></li>
-            <li><a class="filter groupBy"  href="groupBy=my">My Tickets</a></li>
-            <li><a class="filter groupBy"  href="groupBy=myResolved">My Resolved Tickets</a></li>
-            <li><a class="filter groupBy"  href="groupBy=myClosed">My Closed Tickets</a></li>
+  <div id="root" class="container">
+    <div class="bottom-toolbar-container hidden">
+      <input hidden value id="ticketIds" />
+      <button class="bottom-toolbar-btn">
+        Print
+      </button>
+      <button class="bottom-toolbar-btn">
+        Export
+      </button>
+    </div>
+    <div class="toolbar-container">
+      <div class="toolbar-container-left">
+        <!-- Filter -->
+        <nav role="navigation" class="primary-navigation">
+          <ul>
+            <li><a class="groupBy selected" href="#">Group By &dtrif;</a></a>
+              <ul class="dropdown">
+                <li><a class="filter groupBy" href="all"> All Tickets</a></li>
+                <li><a class="filter groupBy" href="resolved">Resolved Tickets</a></li>
+                <li><a class="filter groupBy" href="closed">Closed Tickets</a></li>
+                <li><a class="filter groupBy" href="my">My Tickets</a></li>
+                <li><a class="filter groupBy" href="myResolved">My Resolved Tickets</a></li>
+                <li><a class="filter groupBy" href="myClosed">My Closed Tickets</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Filter By &dtrif;</a>
+              <form class="form-container">
+                <ul class="dropdown">
+                  <li>
+
+                    <details>
+                      <summary>Priority</summary>
+                      <input style="width: 100%;" name="priority" data-key="priority-write" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Category</summary>
+                      <input style="width: 100%;" name="category" data-key="category-write" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Classfication</summary>
+                      <input style="width: 100%;" name="classfications" data-key="classfications-write" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Created Date</summary>
+                      <input style="width: 100%;" name="createdAt" data-key="createdAt-write" type="date" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Updated Date</summary>
+                      <input style="width: 100%;" name="updatedAt" data-key="updatedAt-write" type="date" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>1st Responded Date</summary>
+                      <input style="width: 100%;" name="firstResponseDue" data-key="firstResponseDue-write"
+                        type="date" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Resolved Date</summary>
+                      <input style="width: 100%;" name="resolvedDate" data-key="resolvedAt-write" type="date" />
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Closed Date</summary>
+                      <input style="width: 100%;" name="closedAt" data-key="closedAt-write" type="date" />
+                    </details>
+                  </li>
+                  <li>
+                    <div class="button-group">
+                      <button id="buttonCloseDialog" type="button">Cancel</button>
+                      <button id="buttonSaveDialog" class="save-btn" type="submit" value="Submit">Save</button>
+                    </div>
+                  </li>
+                </ul>
+              </form>
+            </li>
+
+            <li><a href="#">Sort By &dtrif;</a>
+              <ul class="dropdown">
+                <li><a class="filter sortBy" href="subject">Subject </a></li>
+                <li><a class="filter sortBy" href="code">Ticket ID</a></li>
+                <li><a class="filter sortBy" href="createdAt">Created Date</a></li>
+                <li><a class="filter sortBy" href="firstRespondDue">1st Response Due</a></li>
+                <li><a class="filter sortBy" href="resolutionDue">Resolution Due</a></li>
+                <li><a class="filter sortBy" href="closedAt">Closed Date</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-        <li><a href="#">Filter By &dtrif;</a>
-          <ul class="dropdown">
-            <li><form >
-              <p>Priority</p>
-              <input/>
-            </form></li>
+        </nav>
+        <!-- end of filter -->
+      </div>
+      <div class="toolbar-container-right">
+        <form class="search-form">
+          <div class="search-container">
+
+            <input type="text" placeholder="Search..." value="" class="search-input" name="subject" />
+            <svg aria-hidden="true" viewBox="0 0 24 24" data-testid="SearchIcon" id="search-icon">
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+              </path>
+            </svg>
+            <fieldset aria-hidden="true" class="search-icon-box">
+              <legend id="i0q4o">
+                <span class="notranslate">&ZeroWidthSpace;</span>
+              </legend>
+            </fieldset>
+
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <table id="list-table">
+      <th><input type="checkbox" id="all-checkbox" name="all-select" value="all"></th>
+      <th class="hidden" data-type="column-list" data-key="subject">Subject</th>
+      <th class="hidden" data-type="column-list" data-key="category">Category</th>
+      <th class="hidden" data-type="column-list" data-key="stage">Stage</th>
+      <th class="hidden" data-type="column-list" data-key="status">Status</th>
+      <th class="hidden" data-type="column-list" data-key="assignedUser">Assigned Rep</th>
+      <th class="hidden" data-type="column-list" data-key="resolvedDate">Resolved Date</th>
+      <th class="hidden" data-type="column-list" data-key="closedAt">Close Date</th>
+
+
+      <tr data-type="list-common">
+        <td><input type="checkbox" data-key="select-list" value="123"></td>
+        <td class="hidden" data-type="column-list" data-key="subject"><a data-key="subject-list" class="title-text">Amet
+            minim mollit non deserunt ullamco est si venimollit est</a></td>
+        <td class="hidden" data-type="column-list" data-key="category">
+          <div data-key="category-list">Error/Product A</div>
+        </td>
+        <td class="hidden" data-type="column-list" data-key="stage">
+          <div class="priority-chip">
+            <div class="chip-title" data-key="stage-list">Open</div>
+          </div>
+        </td>
+        <td class="hidden" data-type="column-list" data-key="status">
+          <div class="priority-chip">
+            <div class="chip-title" data-key="status-list">Waiting</div>
+          </div>
+        </td>
+        <td class="hidden" data-type="column-list" data-key="assignedUser">
+          <div data-key="assignedUser-list">Robert Fox</div>
+        </td>
+        <td class="hidden" data-type="column-list" data-key="resolvedDate"><span
+            data-key="resolvedDate-list">2023-06-20</span> </td>
+        <td class="hidden" data-type="column-list" data-key="closedAt"><span data-key="closedAt-list">2023-06-20</span>
+        </td>
+
+      </tr>
+
+    </table>
+    <div class="footer-list">
+      <div class="pagination-container">
+        <div class="typography"><span>Row per page
+          </span></div>
+        <nav role="navigation" class="primary-navigation">
+          <ul>
+            <li class="page-size-box"><a class="pageSize selected" href="#">5 &dtrif;</a></a>
+              <ul class="dropdown">
+                <li><a class="filter pageSize" href="5">5</a></li>
+                <li><a class="filter pageSize" href="10">10</a></li>
+                <li><a class="filter pageSize" href="15">15</a></li>
+                <li><a class="filter pageSize" href="20">20</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-       
-        <li><a href="#">Sort By &dtrif;</a>
-          <ul class="dropdown">
-            <li><a class="filter sort" href="sort=subject">Subject </a></li>
-            <li><a class="filter sort" href="?sort=code">Ticket ID</a></li>
-            <li><a class="filter sort" href="?sort=createdAt">Created Date</a></li>
-            <li><a class="filter sort" href="?sort=firstRespondDue">1st Response Due</a></li>
-            <li><a class="filter sort" href="?sort=resolutionDue">Resolution Due</a></li>
-            <li><a class="filter sort" href="?sort=closedAt">Closed Date</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <!-- end of filter -->
+        </nav>
+
+
+
+        <!-- <select name="pageSize" class="page-size-box">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select> -->
+        <div class="typography"><span>1-5 of 13
+          </span></div>
+        <button class="pagination-btn">
+          < </button>
+            <button class="pagination-btn"> > </button>
+
+      </div>
+    </div>
   </div>
-  <div class="toolbar-container-right">
-<div class="search-container">
-  <input type="text" placeholder="Search..." value="" class="search-input" />
-  <svg aria-hidden="true" viewBox="0 0 24 24" data-testid="SearchIcon" id="search-icon">
-    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-  </svg>
-  <fieldset aria-hidden="true" class="search-icon-box">
-    <legend id="i0q4o">
-      <span class="notranslate">&ZeroWidthSpace;</span>
-    </legend>
-  </fieldset>
-</div>
-</div>
-</div>
-<div  class="bottom-toolbar-container hidden" >
-    <input hidden value id="ticketIds" />
-    <button class="bottom-toolbar-btn">
-      Print
-    </button>
-    <button class="bottom-toolbar-btn">
-      Export
-    </button>
-</div>
-<table id="list-table">
-  <th><input type="checkbox" id="all-checkbox" name="all-select" value="all"></th>
-    <th class="hidden"  data-type="column-list" data-key="subject">Subject</th>
-    <th class="hidden"  data-type="column-list" data-key="category">Category</th>
-    <th class="hidden"  data-type="column-list" data-key="stage">Stage</th>
-    <th class="hidden"  data-type="column-list" data-key="status">Status</th>
-    <th class="hidden"  data-type="column-list" data-key="assignedUser">Assigned Rep</th>
-    <th class="hidden"  data-type="column-list" data-key="resolvedDate">Resolved Date</th>
-    <th class="hidden"  data-type="column-list" data-key="closedAt">Close Date</th>
 
-
-  <tr data-type="list-common">
-    <td ><input type="checkbox" data-key="select-list" value="123"></td>
-    <td class="hidden"  data-type="column-list" data-key="subject"><a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a></td>
-    <td class="hidden"  data-type="column-list" data-key="category"><div data-key="category-list">Error/Product A</div></td>
-    <td class="hidden"  data-type="column-list" data-key="stage"><div class="priority-chip">
-      <div class="chip-title" data-key="stage-list">Open</div>
-    </div></td>
-    <td class="hidden"   data-type="column-list" data-key="status"><div class="priority-chip">
-      <div class="chip-title" data-key="status-list">Waiting</div>
-    </div></td>
-    <td class="hidden"  data-type="column-list" data-key="assignedUser"><div data-key="assignedUser-list">Robert Fox</div></td>
-    <td class="hidden"  data-type="column-list" data-key="resolvedDate"><span data-key="resolvedDate-list">2023-06-20</span> </td>
-    <td class="hidden"  data-type="column-list" data-key="closedAt"><span data-key="closedAt-list">2023-06-20</span></td>
-
-  </tr>
-  
-</table>
-<div class="footer-list">
-  <div class="pagination-container">
-    <div class="typography"><span>Row per page
-    </span></div>
-    <select name="pageSize" class="page-size-box">
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="15">15</option>
-      <option value="20">20</option>     
-    </select>
-    <div class="typography"><span>1-5 of 13
-    </span></div>
-    <button class="pagination-btn"> < </button>
-    <button class="pagination-btn"> > </button>
-
-  </div>
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,48 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
+
 <body>
-  <form class="form-container"  >
+  <form class="form-container">
     <div class="form-row">
-    <div class="form-field" id="ith43">
-      <label data-mytext="MyText" class="field-title">Subject<span data-mytext="MyText" class="required-field" draggable="true">*</span></label>
-      <input placeholder="type your subject" type="text" name="subject" required id="igt4p"/>
+      <div class="form-field" id="ith43">
+        <label data-mytext="MyText" class="field-title">Subject<span data-mytext="MyText" class="required-field"
+            draggable="true">*</span></label>
+        <input placeholder="type your subject" type="text" name="subject" required id="igt4p" />
+      </div>
     </div>
-  </div>
-    <div class="form-row" >
+    <div class="form-row">
       <div class="form-cell" id="iiwn">
         <div class="form-field" title="Customer" id="i1dmk">
           <label data-mytext="MyText" class="field-title">Customer</label>
-          <input type="value"  data-key="customer-write" readonly name="customer" />
+          <input type="value" data-key="customer-write" readonly name="customer" />
         </div>
       </div>
     </div>
     <div style="padding:8px;padding-bottom:0;"><label data-mytext="MyText" class="field-title">Category</label></div>
-    
+
     <div class="form-row">
       <div class="form-cell" id="i7lh9">
-        <div class="form-field" >
+        <div class="form-field">
           <label data-mytext="MyText" class="field-sub-title">Issue</label>
-          <select type="text" id="iqw6l" data-key="category-write" name="category"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+          <select type="text" id="iqw6l" data-key="category-write" name="category">
+            <option value="opt1">Option 1</option>
+            <option value="opt2">Option 2</option>
+          </select>
         </div>
       </div>
       <div class="form-cell" id="if5jc">
         <div class="form-field" title="Assigned Rep" id="ibtig">
           <label data-mytext="MyText" id="iu0zc" class="field-sub-title">Product</label>
-          <select type="text" id="iah8l" name="product" data-key="product-write"><option value="opt1">User 1</option><option value="opt2">user 2</option></select>
+          <select type="text" id="iah8l" name="product" data-key="product-write">
+            <option value="opt1">User 1</option>
+            <option value="opt2">user 2</option>
+          </select>
         </div>
       </div>
     </div>
 
-    
+
     <div class="form-row" id="iwfe7">
       <div class="form-cell" id="ibmij">
         <div class="form-field" id="ihp1a">
@@ -55,44 +64,55 @@
           </div>
           <input style="display:none" hidden type="value" name="classifications" data-key="classifications-write" />
           <div class="classification-container">
-            <select class="classification-item" data-key="classification"  ><option value="language">Language</option>&lt;</select>
-            <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+            <select class="classification-item" data-key="classification">
+              <option value="language">Language</option>&lt;
+            </select>
+            <select class="classification-item" type="text" data-key="classification-value">
+              <option value="opt1">Option 1</option>
+              <option value="opt2">Option 2</option>
+            </select>
           </div>
           <div class="classification-container">
-            <select class="classification-item" data-key="classification" ><option value="language">Language</option>&lt;</select>
-            <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+            <select class="classification-item" data-key="classification">
+              <option value="language">Language</option>&lt;
+            </select>
+            <select class="classification-item" type="text" data-key="classification-value">
+              <option value="opt1">Option 1</option>
+              <option value="opt2">Option 2</option>
+            </select>
           </div>
-          
+
         </div>
       </div>
-   
+
     </div>
     <div class="form-field" id="irrur">
       <label data-mytext="MyText" id="i403p">Content</label>
       <input style="display:none" hidden type="value" name="content" data-key="content-write" />
       <div id="editor"></div>
     </div>
-   
+
   </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
   <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script>
     const editor = new toastui.Editor({
-        el: document.querySelector('#editor'),
-        height: '400px',
-        events: {
-          blur: (value)=>{
-            let contentWriteElement = document.querySelector('[data-key="content-write"]')
-            if(contentWriteElement) {
-              contentWriteElement.value = editor.getHTML()
-            }
-            console.log('value editor', editor.getHTML())
+      el: document.querySelector('#editor'),
+      height: '400px',
+      events: {
+        blur: (value) => {
+          let contentWriteElement = document.querySelector('[data-key="content-write"]')
+          if (contentWriteElement) {
+            contentWriteElement.value = editor.getHTML()
           }
-        },
-        initialValue: '',
-        initialEditType: 'wysiwyg'
-      });
+          console.log('value editor', editor.getHTML())
+        }
+      },
+      initialValue: '',
+      initialEditType: 'wysiwyg'
+    });
   </script>
   <script src="script.js"></script>
 </body>
+
 </html>
