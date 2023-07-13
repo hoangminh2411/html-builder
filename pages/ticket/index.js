@@ -1,13 +1,25 @@
 // @refresh reset
 
+import { getTicketList } from "../../configs/ticket-list-html"
 
 
-export default function TicketMainPage() {
+
+export default function TicketMainPage({html}) {
   return (
     <>
-      <a href="/ticket/123">123123</a>
-       ticket main page
+     <div  dangerouslySetInnerHTML={{ __html:html  }}></div>
     </>
   )
 }
 
+
+export async function getServerSideProps() {
+
+
+  
+  return {
+    props: {
+     html: getTicketList()
+    }
+  }
+}
