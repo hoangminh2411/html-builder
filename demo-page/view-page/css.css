@@ -73,8 +73,6 @@ body {
 }
 .editable {
   min-height: 40px;
-  /* padding: 8px;
-  display: flex; */
   border: 1px dashed transparent;
   position: relative;
   cursor: pointer;
@@ -328,7 +326,7 @@ body {
 .modal-title {
   font-weight: 500;
 }
-.modal-body {padding: 2px 16px;  height: 700px;
+.modal-body {padding: 2px 16px;  height: 700px; overflow:auto
 }
 
 .modal-footer {

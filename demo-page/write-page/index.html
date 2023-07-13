@@ -10,23 +10,23 @@
 <body>
   <form class="form-container" id="ih8p">
     <div class="form-field" id="ith43">
-      <label data-mytext="MyText" id="imqb">Subject<span data-mytext="MyText" id="i0s88" draggable="true">*</span></label>
-      <input type="text" name="subject" required id="igt4p"/>
+      <label data-mytext="MyText" class="field-title">Subject<span data-mytext="MyText" id="i0s88" draggable="true">*</span></label>
+      <input placeholder="type your subject" type="text" name="subject" required id="igt4p"/>
     </div>
-    <div class="form-row" id="ieb8">
+    <div class="form-row" >
       <div class="form-cell" id="iiwn">
         <div class="form-field" title="Customer" id="i1dmk">
-          <label data-mytext="MyText">Customer</label>
-          <select type="text" id="i05p1" name="customer"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+          <label data-mytext="MyText" class="field-title">Customer</label>
+          <input type="value"  data-key="customer-write" name="customer" />
         </div>
       </div>
     </div>
-    <div data-mytext="MyText" id="inkxg">Category
-    </div>
+    <div style="padding:8px;padding-bottom:0;"><label data-mytext="MyText" class="field-title">Category</label></div>
+    
     <div class="form-row" id="iqkyl">
       <div class="form-cell" id="i7lh9">
         <div class="form-field" id="ie098">
-          <label data-mytext="MyText" id="iyvmj">Issue</label>
+          <label data-mytext="MyText" >Issue</label>
           <select type="text" id="iqw6l" data-key="category-write" name="category"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
         </div>
       </div>
@@ -38,18 +38,27 @@
       </div>
     </div>
 
-    <input hidden type="value" name="classifications" data-key="classifications-write" />
+    
     <div class="form-row" id="iwfe7">
       <div class="form-cell" id="ibmij">
         <div class="form-field" id="ihp1a">
-          <label data-mytext="MyText" id="iipvl">Classification</label>
+          <label data-mytext="MyText" class="field-title">Classification</label>
           <div class="classification-container">
-            <select class="classification-item" data-key="classification"  id="izosb"><option value="language">Language</option>&lt;</select>
-            <select class="classification-item" type="text" id="i2u2m" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+            <div class="classification-item">
+              <label class="field-sub-title">Classification</label>
+            </div>
+            <div class="classification-item">
+              <label class="field-sub-title">value</label>
+            </div>
+          </div>
+          <input style="display:none" hidden type="value" name="classifications" data-key="classifications-write" />
+          <div class="classification-container">
+            <select class="classification-item" data-key="classification"  ><option value="language">Language</option>&lt;</select>
+            <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
           </div>
           <div class="classification-container">
-            <select class="classification-item" data-key="classification"  id="izosb"><option value="language">Language</option>&lt;</select>
-            <select class="classification-item" type="text" id="i2u2m" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+            <select class="classification-item" data-key="classification" ><option value="language">Language</option>&lt;</select>
+            <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
           </div>
           
         </div>
@@ -58,9 +67,10 @@
     </div>
     <div class="form-field" id="irrur">
       <label data-mytext="MyText" id="i403p">Content</label>
-      <textarea name="content" required id="ig5to"></textarea>
+      <input style="display:none" hidden type="value" name="content" data-key="content-write" />
+      <div id="editor"></div>
     </div>
-    <div id="editor"></div>
+   
   </form>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
   <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
@@ -69,7 +79,13 @@
         el: document.querySelector('#editor'),
         height: '500px',
         events: {
-          change: (value)=>{console.log('value editor', editor.getHTML())}
+          blur: (value)=>{
+            let contentWriteElement = document.querySelector('[data-key="content-write"]')
+            if(contentWriteElement) {
+              contentWriteElement.value = editor.getHTML()
+            }
+            console.log('value editor', editor.getHTML())
+          }
         },
         initialValue: '',
         initialEditType: 'wysiwyg'
