@@ -574,4 +574,11 @@ div{
   border-radius:0.25rem;
   transition:background-color 0.05s ease-in-out, border-color 0.05s ease-in-out, box-shadow 0.05s ease-in-out;
 }
-
+.classification-container {
+  display: flex;
+  width: 100%;
+  gap:20px
+}
+.classification-item {
+  width: 50%;
+}
