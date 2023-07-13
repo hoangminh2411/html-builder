@@ -1,79 +1,101 @@
 export const getTicketForm =(id) =>{
-  const formData = `<div class="form-field" id="ith43">
-  <label data-mytext="MyText" class="field-title">Subject<span data-mytext="MyText" id="i0s88" draggable="true">*</span></label>
-  <input placeholder="type your subject" type="text" name="subject" required id="igt4p"/>
-</div>
-<div class="form-row" >
-  <div class="form-cell" id="iiwn">
-    <div class="form-field" title="Customer" id="i1dmk">
-      <label data-mytext="MyText" class="field-title">Customer</label>
-      <input type="value" readonly  data-key="customer-write" name="customer" />
-    </div>
+  const formData = `<div class="form-row">
+  <div class="form-field" id="ith43">
+    <label data-mytext="MyText" class="field-title">Subject<span data-mytext="MyText" class="required-field" draggable="true">*</span></label>
+    <input placeholder="type your subject" type="text" name="subject" required id="igt4p"/>
   </div>
 </div>
-<div style="padding:8px;padding-bottom:0;"><label data-mytext="MyText" class="field-title">Category</label></div>
-
-<div class="form-row" id="iqkyl">
-  <div class="form-cell" id="i7lh9">
-    <div class="form-field" id="ie098">
-      <label data-mytext="MyText" >Issue</label>
-      <select type="text" id="iqw6l" data-key="category-write" name="category"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+  <div class="form-row" >
+    <div class="form-cell" id="iiwn">
+      <div class="form-field" title="Customer" id="i1dmk">
+        <label data-mytext="MyText" readonly class="field-title">Customer</label>
+        <input type="value"  data-key="customer-write" name="customer" />
+      </div>
     </div>
   </div>
-  <div class="form-cell" id="if5jc">
-    <div class="form-field" title="Assigned Rep" id="ibtig">
-      <label data-mytext="MyText" id="iu0zc">Product</label>
-      <select type="text" id="iah8l" name="product" data-key="product-write"><option value="opt1">User 1</option><option value="opt2">user 2</option></select>
+  <div style="padding:8px;padding-bottom:0;"><label data-mytext="MyText" class="field-title">Category</label></div>
+  
+  <div class="form-row">
+    <div class="form-cell" id="i7lh9">
+      <div class="form-field" >
+        <label data-mytext="MyText" class="field-sub-title">Issue</label>
+        <select type="text" id="iqw6l" data-key="category-write" name="category"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+      </div>
+    </div>
+    <div class="form-cell" id="if5jc">
+      <div class="form-field" title="Assigned Rep" id="ibtig">
+        <label data-mytext="MyText" id="iu0zc" class="field-sub-title">Product</label>
+        <select type="text" id="iah8l" name="product" data-key="product-write"><option value="opt1">User 1</option><option value="opt2">user 2</option></select>
+      </div>
     </div>
   </div>
-</div>
 
-
-<div class="form-row" id="iwfe7">
-  <div class="form-cell" id="ibmij">
-    <div class="form-field" id="ihp1a">
-      <label data-mytext="MyText" class="field-title">Classification</label>
-      <div class="classification-container">
-        <div class="classification-item">
-          <label class="field-sub-title">Classification</label>
+  
+  <div class="form-row" id="iwfe7">
+    <div class="form-cell" id="ibmij">
+      <div class="form-field" id="ihp1a">
+        <label data-mytext="MyText" class="field-title">Classification</label>
+        <div class="classification-container">
+          <div class="classification-item">
+            <label class="field-sub-title">Classification</label>
+          </div>
+          <div class="classification-item">
+            <label class="field-sub-title">Value</label>
+          </div>
         </div>
-        <div class="classification-item">
-          <label class="field-sub-title">value</label>
+        <input style="display:none" hidden type="value" name="classifications" data-key="classifications-write" />
+        <div class="classification-container">
+          <select class="classification-item" data-key="classification"  ><option value="language">Language</option>&lt;</select>
+          <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
         </div>
+        <div class="classification-container">
+          <select class="classification-item" data-key="classification" ><option value="language">Language</option>&lt;</select>
+          <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
+        </div>
+        
       </div>
-      <input style="display:none" hidden type="value" name="classifications" data-key="classifications-write" />
-      <div class="classification-container">
-        <select class="classification-item" data-key="classification"  ><option value="language">Language</option>&lt;</select>
-        <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
-      </div>
-      <div class="classification-container">
-        <select class="classification-item" data-key="classification" ><option value="language">Language</option>&lt;</select>
-        <select class="classification-item" type="text" data-key="classification-value"><option value="opt1">Option 1</option><option value="opt2">Option 2</option></select>
-      </div>
-      
     </div>
+ 
   </div>
-
-</div>
-<div class="form-field" id="irrur">
-  <label data-mytext="MyText" id="i403p">Content</label>
-  <input style="display:none" hidden type="value" name="content" data-key="content-write" />
-  <div id="editor"></div>
-</div>
-  `
+  <div class="form-field" id="irrur">
+    <label data-mytext="MyText" id="i403p">Content</label>
+    <input style="display:none" hidden type="value" name="content" data-key="content-write" />
+    <div id="editor"></div>
+  </div>`
   const cssFormData = `<style>* {
     box-sizing: border-box;
   }
   body {
     margin: 0;
   }
+  div {
+    font-family: Roboto, sans-serif;
+  }
+  .form-container{
+    min-height: 100vh;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+  }
+  .form-field {
+    display:flex;
+    flex-direction:column;
+    padding-top:8px;
+    padding-right:8px;
+    padding-bottom:8px;
+    padding-left: 0px;
+    row-gap:10px;
+    column-gap:10px;
+    width:100%;
+  }
   .form-container select,input {
+    padding: 10.5px 14px 10.5px 12px;
     display: block;
     color: #212529;
     background-color: #FFFFFF;
     background-clip: padding-box;
     appearance: none;
-    padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
     border: 1px solid #CED4DA;
     border-radius: 0.25rem;
@@ -103,13 +125,7 @@ export const getTicketForm =(id) =>{
     flex-grow:1;
     flex-basis:100%;
   }
-  #ih8p{
-    min-height:100vh;
-    padding-top:10px;
-    padding-right:10px;
-    padding-bottom:10px;
-    padding-left:10px;
-  }
+  
   .form-row {
     min-height:60px;
     width:100%;
@@ -120,25 +136,17 @@ export const getTicketForm =(id) =>{
     margin-right:0px;
     margin-bottom:0px;
     margin-left:0px;
-    padding-top:10px;
-    padding-right:10px;
-    padding-bottom:10px;
-    padding-left:10px;
+    padding-top:5px;
+    padding-right:  10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     overflow-x:hidden;
     overflow-y:hidden;
-    padding:10px;
     overflow:hidden;
   }
-  #ith43{
-    display:flex;
-    flex-direction:column;
-    padding-top:8px;
-    padding-right:8px;
-    padding-bottom:8px;
-    padding-left:8px;
-    row-gap:10px;
-    column-gap:10px;
-    width:100%;
+  .required-field {
+    color: red;
+    margin-left: 3px;
   }
   
   #i1dmk{
@@ -165,35 +173,24 @@ export const getTicketForm =(id) =>{
   }
   
   
-  #iqkyl{
+  /* #iqkyl{
     min-height:60px;
     width:100%;
     display:flex;
     position:relative;
-    height:82.5559px;
     color:black;
     overflow-x:hidden;
     overflow-y:hidden;
-    padding:10px 10px 10px 0px;
+    padding:5px 10px 10px 0px;
     overflow:hidden;
-  }
+  } */
   #inkxg{
     padding-top:10px;
     padding-right:10px;
     padding-bottom:10px;
     padding-left:10px;
   }
-  #ie098{
-    display:flex;
-    flex-direction:column;
-    padding-top:8px;
-    padding-right:8px;
-    padding-bottom:8px;
-    padding-left:8px;
-    row-gap:10px;
-    column-gap:10px;
-    width:100%;
-  }
+  
   #inojh{
     padding-top:10px;
     padding-right:10px;
@@ -205,7 +202,6 @@ export const getTicketForm =(id) =>{
     width:100%;
     display:flex;
     position:relative;
-    height:151.667px;
     overflow-x:hidden;
     overflow-y:hidden;
     padding:10px 10px 10px 0px;
