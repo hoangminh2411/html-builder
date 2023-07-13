@@ -76,16 +76,27 @@
 </div>
 </div>
 </div>
+<div  class="bottom-toolbar-container hidden" >
+    <button class="bottom-toolbar-btn">
+      Print
+    </button>
+    <button class="bottom-toolbar-btn">
+      Export
+    </button>
+</div>
 <table id="list-table">
-  <!-- <th><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></th> -->
-    <th>Subject</th>
-    <th>Category</th>
-    <th>Stage</th>
-    <th>Status</th>
-    <th>Assigned Rep</th>
-    <th>Resolved Date</th>
+  <th><input type="checkbox" id="all-checkbox" name="all-select" value="all"></th>
+    <th data-type="column-list" data-key="subject">Subject</th>
+    <th data-type="column-list" data-key="category">Category</th>
+    <th data-type="column-list" data-key="stage">Stage</th>
+    <th data-type="column-list" data-key="status">Status</th>
+    <th data-type="column-list" data-key="assignedUser-list">Assigned Rep</th>
+    <th data-type="column-list" data-key="resolvedDate">Resolved Date</th>
+    <th data-type="column-list" data-key="closedAt">Close Date</th>
+
 
   <tr data-type="list-common">
+    <td><input type="checkbox" data-key="select-list"></td>
     <td><a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a></td>
     <td><div data-key="category-list">Error/Product A</div></td>
     <td><div class="priority-chip">
@@ -95,7 +106,8 @@
       <div class="chip-title" data-key="status-list">Waiting</div>
     </div></td>
     <td><div data-key="assignedUser-list">Robert Fox</div></td>
-    <td>2023-06-20</td>
+    <td data-key="resolvedDate-list">2023-06-20</td>
+    <td data-key="closedAt-list">2023-06-20</td>
 
   </tr>
   
