@@ -126,6 +126,7 @@ export const parseDataTicketList = () =>{
 }
 export const parseDataTicket = () => {
   return {
+    subject:"Ticket Subject",
     customer:'Tinh Chikitori',
     code: 'TIC-000001 Test',
     channel:'Direct Test',
@@ -142,6 +143,7 @@ export const parseDataTicket = () => {
 }
 
 export const parseCommentsTicket =()=>{
+  // return []
   return [{
     user:'Tinh Chikitori',
     createdAt:'8/10/2022 23:30',

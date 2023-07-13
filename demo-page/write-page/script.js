@@ -99,8 +99,7 @@
    
     document.querySelectorAll('[data-key="classification"]').forEach((element)=> {
         element.innerHTML = ''
-        fieldOptionService.getCategoryList()
-        .then(response => {
+        fieldOptionService.getCategoryList().then(response => {
           const {data:users } = response
           element.innerHTML = users.map((user)=>{
             const optionValue = JSON.stringify(user)
@@ -111,6 +110,7 @@
          
         })
   
+      
         element.addEventListener("change",(event)=>{
           let selectedClassifaction = JSON.parse(event.target.value) 
           let classficationValuElement = element.parentElement.querySelector('[data-key="classification-value"]')
@@ -123,7 +123,13 @@
             })
   
             classficationValuElement.addEventListener("change",(event)=>{
-              let results = [];
+              let classfications  = document.querySelector('[data-key="classifications-write"]')
+              let results = []
+              if(classfications.value){
+                results=JSON.parse(classfications.value)
+              }
+              let classficationIdx = results.findIndex((item)=> item.classfication.id == selectedClassifaction.id)
+             
               let initClassfication = {
                 classfication: {
                   id:selectedClassifaction.id,
@@ -131,8 +137,12 @@
                 },
                 value: event.target.value
               }
-              results.push(initClassfication);
-              let classfications  = formWriteElement.querySelector('[data-key="classifications-write"]')
+
+               if(classficationIdx == -1 ) {
+                results.push(initClassfication);
+               } else {
+                results[classficationIdx] = initClassfication
+               }
               if(classfications) {
                 classfications.value = JSON.stringify(results) 
               }
