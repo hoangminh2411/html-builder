@@ -18,7 +18,7 @@ export default function TicketMainPage({html, css, script}) {
 export async function getServerSideProps(context) {
   const {query} = context;
   
-  console.log("context.params", context, query)
+  // console.log("context.params", context, query)
 
   const jsdom = require("jsdom");
   const { JSDOM } = jsdom;
@@ -31,13 +31,25 @@ export async function getServerSideProps(context) {
     element.outerHTML = listTickets.map((ticket)=>{
       let defaultTicketComponent = element.cloneNode(true);
         Object.keys(ticket).forEach((ticketKey)=>{
-        let childElement = defaultTicketComponent.querySelector(`[data-key="${ticketKey}-list"]`)
-        if(childElement) {
-          childElement.innerHTML = ticket[ticketKey]
-        if(ticketKey == 'subject') {
-          childElement.setAttribute('href',`/ticket/${ticket.id}`)
-        }  
-        }
+          if(ticketKey == 'id') {
+            //data-key="select-list"
+            let checkBoxElement =  defaultTicketComponent.querySelector(`[data-key="select-list"]`)
+            // console.log("checkBoxElement",checkBoxElement)
+            if(checkBoxElement) {
+              checkBoxElement.value = ticket[ticketKey]
+              checkBoxElement.setAttribute('value',ticket[ticketKey])
+            }
+            
+          } else {
+            let childElement = defaultTicketComponent.querySelector(`[data-key="${ticketKey}-list"]`)
+            if(childElement) {
+              childElement.innerHTML = ticket[ticketKey]
+            if(ticketKey == 'subject') {
+              childElement.setAttribute('href',`/ticket/${ticket.id}`)
+            }
+            }
+          } 
+      
          
       })
       return defaultTicketComponent.outerHTML

@@ -50,26 +50,39 @@ export const listHTML = `<div id="root"><div class="toolbar-container">
 </div>
 </div>
 </div>
+<div  class="bottom-toolbar-container hidden" >
+  <input hidden value id="ticketIds" />
+  <button class="bottom-toolbar-btn">
+    Print
+  </button>
+  <button class="bottom-toolbar-btn">
+    Export
+  </button>
+</div>
 <table id="list-table">
-<!-- <th><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></th> -->
-  <th>Subject</th>
-  <th>Category</th>
-  <th>Stage</th>
-  <th>Status</th>
-  <th>Assigned Rep</th>
-  <th>Resolved Date</th>
+<th><input type="checkbox" id="all-checkbox" name="all-select" value="all"></th>
+  <th class="hidden"  data-type="column-list" data-key="subject">Subject</th>
+  <th class="hidden"  data-type="column-list" data-key="category">Category</th>
+  <th class="hidden"  data-type="column-list" data-key="stage">Stage</th>
+  <th class="hidden"  data-type="column-list" data-key="status">Status</th>
+  <th class="hidden"  data-type="column-list" data-key="assignedUser">Assigned Rep</th>
+  <th class="hidden"  data-type="column-list" data-key="resolvedDate">Resolved Date</th>
+  <th class="hidden"  data-type="column-list" data-key="closedAt">Close Date</th>
+
 
 <tr data-type="list-common">
-  <td><a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a></td>
-  <td><div data-key="category-list">Error/Product A</div></td>
-  <td><div class="priority-chip">
+  <td ><input type="checkbox" data-key="select-list" value="123"></td>
+  <td class="hidden"  data-type="column-list" data-key="subject"><a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a></td>
+  <td class="hidden"  data-type="column-list" data-key="category"><div data-key="category-list">Error/Product A</div></td>
+  <td class="hidden"  data-type="column-list" data-key="stage"><div class="priority-chip">
     <div class="chip-title" data-key="stage-list">Open</div>
   </div></td>
-  <td><div class="priority-chip">
+  <td class="hidden"   data-type="column-list" data-key="status"><div class="priority-chip">
     <div class="chip-title" data-key="status-list">Waiting</div>
   </div></td>
-  <td><div data-key="assignedUser-list">Robert Fox</div></td>
-  <td>2023-06-20</td>
+  <td class="hidden"  data-type="column-list" data-key="assignedUser"><div data-key="assignedUser-list">Robert Fox</div></td>
+  <td class="hidden"  data-type="column-list" data-key="resolvedDate"><span data-key="resolvedDate-list">2023-06-20</span> </td>
+  <td class="hidden"  data-type="column-list" data-key="closedAt"><span data-key="closedAt-list">2023-06-20</span></td>
 
 </tr>
 
@@ -489,5 +502,151 @@ a:hover {
   position: relative;
   border-radius: 50%;
   color: rgb(217, 217, 217);
+}
+
+.bottom-toolbar-container {
+  max-width: 100%;
+  padding: 0px 10px;
+  height:44px;
+  display: flex;
+  align-items: center;
+  /* position: absolute;
+  top: 108px;
+  right: 0px;
+  left: 0px; */
+  z-index: 1100;
+  transition: all 0.1s ease 0s;
+  background-color: rgb(240, 240, 240);
+}
+.bottom-toolbar-btn {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Roboto, sans-serif;
+  font-size: 0.870536rem;
+  line-height: 1.75;
+  min-width: 64px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition-duration: 250ms, 250ms, 250ms, 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0ms, 0ms, 0ms, 0ms;
+  transition-property: background-color, box-shadow, border-color, color;
+  color: inherit;
+  font-weight: 400;
+  box-shadow: none;
+  border: 1px solid transparent;
+  padding: 0.2rem 0.9rem;
+  position: relative;
+}
+
+.bottom-toolbar-btn:hover{
+  border: 1px solid;
+}
+
+.hidden{
+  display: none !important;
 }</style>`
-export const  listScripts=  `<script></script>`
+export const  listScripts=  `<script>let ticketIds = []
+const columnsByGroupBy = {
+  resolved: ['subject', 'category','stage','status','assignedUser', 'resolvedDate'],
+  closed:['subject', 'category','stage','status','assignedUser', 'closedAt'],
+  my:['subject', 'category','stage','status','assignedUser','resolvedDate', 'closedAt'],
+  myResolved: ['subject', 'category','stage','status','assignedUser', 'resolvedDate'],
+  myClosed:['subject', 'category','stage','status','assignedUser', 'closedAt'],
+}
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+const groupBy = urlParams.get('groupBy')
+let tablesColumns = columnsByGroupBy['my'];
+if(groupBy && Object.keys(columnsByGroupBy).includes(groupBy)) {
+  tablesColumns = columnsByGroupBy[groupBy]
+}
+tablesColumns.forEach((column)=>{
+  let dataKey  = "[data-key="+column+"]";
+  document.querySelectorAll(dataKey+"[data-type=column-list]").forEach((Element)=>{
+    Element.classList.toggle("hidden")
+  })
+})
+const allCheckboxs = document.querySelectorAll('[data-key=select-list]');
+const overallCheckbox  = document.querySelector("#all-checkbox")
+function updateDisplay (ticketIds) {
+  if(overallCheckbox){
+    if (ticketIds.length === 0) {
+      overallCheckbox.checked = false;
+      overallCheckbox.indeterminate = false;
+    } else if (ticketIds.length === allCheckboxs.length) {
+      overallCheckbox.checked = true;
+      overallCheckbox.indeterminate = false;
+    } else {
+      overallCheckbox.checked = false;
+      overallCheckbox.indeterminate = true;
+    }
+    let bottomToolbar = document.querySelector('.bottom-toolbar-container')
+    if(ticketIds.length > 0) {     
+        bottomToolbar.classList.remove("hidden")
+    } else {
+      bottomToolbar.classList.add("hidden")
+    }
+  
+    // allCheckBoxElement.addEventListener((event)=>{
+    //   if(event.target.checked) {
+    //     document.querySelectorAll('[data-key=select-list]').forEach((Element)=>{
+    //       Element.checked = true
+    //     })
+    //   }
+    // })
+  }
+}
+function saveIdChecked (ticketIds) {
+  let ticketIdsElement = document.querySelector("#ticketIds")
+  ticketIdsElement.setAttribute('value',JSON.stringify(ticketIds))
+  ticketIdsElement.value = JSON.stringify(ticketIds)
+}
+allCheckboxs.forEach((Element)=>{
+  let ticketId = Element.getAttribute('value')
+  Element.addEventListener("change",(event)=>{
+    if(event.target.checked ) {
+      ticketIds.push(ticketId)
+    } else {
+      ticketIds = ticketIds.filter((id)=> id !== ticketId)
+    }
+
+ 
+    saveIdChecked(ticketIds)
+    updateDisplay(ticketIds);
+  })
+})
+
+overallCheckbox.addEventListener("change",(event)=>{
+  let newIds = [];
+  if(event.target.checked) { 
+    allCheckboxs.forEach((Element)=>{
+      Element.checked = true;
+      newIds.push(Element.value)
+    })
+  } else {
+    allCheckboxs.forEach((Element)=>{
+      Element.checked = false;
+    })
+  }
+  saveIdChecked(newIds)
+  updateDisplay(newIds);
+})
+</script>
+`
