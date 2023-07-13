@@ -42,8 +42,8 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
       <p id="idlx">Tickets </p>
     </div>
     <!-- List GRID ITEM -->
-    <div data-type="list-common" class="list-grid-container">
-      <div class="grid">
+    <div  class="list-grid-container">
+      <div data-type="list-common" class="grid">
         <div class="grid-title">
           <div class="grid-title-text">
             <a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a>

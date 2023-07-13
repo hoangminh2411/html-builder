@@ -87,43 +87,119 @@ export const dataTicket = {
 }
 
 export const parseDataTicketList = () =>{
-  return [{
-    id:'12',
-    subject:'Create New Ticket 1',
-    code:'TIC-000014',
-    priority:'Medium',
-    stage:'New',
-    status:'New',
-    customer:'Jenny Willson Minh'
-  },
-  {
-    id:'13',
-    subject:'Create New Ticket 2',
-    code:'TIC-00001',
-    priority:'Medium',
-    stage:'New',
-    status:'New',
-    customer:'Jenny Willson Tinh'
-  },
-  {
-    id:'14',
-    subject:'Create New Ticket 3',
-    code:'TIC-000013',
-    priority:'Medium',
-    stage:'New',
-    status:'New',
-    customer:'Jenny Willson Minh'
-  },
-  {
-    id:'15',
-    subject:'Create New Ticket 4',
-    code:'TIC-000012',
-    priority:'Medium',
-    stage:'New',
-    status:'New',
-    customer:'Jenny Willson Tinh'
-  }]
-}
+  return [
+    {
+      id: '12',
+      subject: 'Create New Ticket 1',
+      code: 'TIC-000014',
+      priority: 'Medium',
+      stage: 'New',
+      status: 'New',
+      customer: 'Jenny Willson Minh',
+      assignedUser: 'Tinh',
+      category: 'Error/Product A'
+    },
+    {
+      id: '78',
+      subject: 'Update Ticket Details',
+      code: 'TIC-000087',
+      priority: 'High',
+      stage: 'In Progress',
+      status: 'Assigned',
+      customer: 'John Smith',
+      assignedUser: 'Lisa',
+      category: 'Bug/Product B'
+    },
+    {
+      id: '23',
+      subject: 'Resolve Technical Issue',
+      code: 'TIC-000031',
+      priority: 'Low',
+      stage: 'Closed',
+      status: 'Resolved',
+      customer: 'Mike Johnson',
+      assignedUser: 'Sarah',
+      category: 'Enhancement/Product C'
+    },
+    {
+      id: '56',
+      subject: 'Investigate Error Message',
+      code: 'TIC-000062',
+      priority: 'Medium',
+      stage: 'New',
+      status: 'New',
+      customer: 'Emily Davis',
+      assignedUser: 'Alex',
+      category: 'Error/Product A'
+    },
+    {
+      id: '34',
+      subject: 'Fix Performance Bottleneck',
+      code: 'TIC-000041',
+      priority: 'High',
+      stage: 'In Progress',
+      status: 'Assigned',
+      customer: 'Robert Thompson',
+      assignedUser: 'Jessica',
+      category: 'Bug/Product B'
+    },
+    {
+      id: '97',
+      subject: 'Implement New Feature',
+      code: 'TIC-000102',
+      priority: 'Medium',
+      stage: 'New',
+      status: 'New',
+      customer: 'Sophia Wilson',
+      assignedUser: 'Michael',
+      category: 'Enhancement/Product C'
+    },
+    {
+      id: '45',
+      subject: 'Resolve Login Issue',
+      code: 'TIC-000056',
+      priority: 'High',
+      stage: 'In Progress',
+      status: 'Assigned',
+      customer: 'David Johnson',
+      assignedUser: 'Emily',
+      category: 'Error/Product A'
+    },
+    {
+      id: '67',
+      subject: 'Request Feature Enhancement',
+      code: 'TIC-000077',
+      priority: 'Medium',
+      stage: 'New',
+      status: 'New',
+      customer: 'Olivia Davis',
+      assignedUser: 'Daniel',
+      category: 'Enhancement/Product B'
+    },
+    {
+      id: '28',
+      subject: 'Investigate Database Error',
+      code: 'TIC-000036',
+      priority: 'High',
+      stage: 'In Progress',
+      status: 'Assigned',
+      customer: 'Grace Thompson',
+      assignedUser: 'Jessica',
+      category: 'Bug/Product C'
+    },
+    {
+      id: '89',
+      subject: 'Fix UI Layout Issue',
+      code: 'TIC-000079',
+      priority: 'Low',
+      stage: 'Closed',
+      status: 'Resolved',
+      customer: 'Sophia Wilson',
+      assignedUser: 'Lisa',
+      category: 'Error/Product A'
+    }
+  ]
+}  
 export const parseDataTicket = () => {
   return {
     subject:"Ticket Subject",
