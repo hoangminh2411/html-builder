@@ -31,12 +31,12 @@
       <ul>
         <li><a href="#">Group By &dtrif;</a>
           <ul class="dropdown">
-            <li><a href="#"> All Tickets</a></li>
-            <li><a href="#">Resolved Tickets</a></li>
-            <li><a href="#">Closed Tickets</a></li>
-            <li><a href="#">My Tickets</a></li>
-            <li><a href="#">My Resolved Tickets</a></li>
-            <li><a href="#">My Closed Tickets</a></li>
+            <li><a class="filter groupBy"  href="?groupBy=all"> All Tickets</a></li>
+            <li><a class="filter groupBy"  href="?groupBy=resolved">Resolved Tickets</a></li>
+            <li><a class="filter groupBy"  href="?groupBy=closed">Closed Tickets</a></li>
+            <li><a class="filter groupBy"  href="groupBy=my">My Tickets</a></li>
+            <li><a class="filter groupBy"  href="groupBy=myResolved">My Resolved Tickets</a></li>
+            <li><a class="filter groupBy"  href="groupBy=myClosed">My Closed Tickets</a></li>
           </ul>
         </li>
         <li><a href="#">Filter By &dtrif;</a>
@@ -50,12 +50,12 @@
        
         <li><a href="#">Sort By &dtrif;</a>
           <ul class="dropdown">
-            <li><a href="#">Subject </a></li>
-            <li><a href="#">Ticket ID</a></li>
-            <li><a href="#">Created Date</a></li>
-            <li><a href="#">1st Response Due</a></li>
-            <li><a href="#">Resolution Due</a></li>
-            <li><a href="#">Closed Date</a></li>
+            <li><a class="filter sort" href="sort=subject">Subject </a></li>
+            <li><a class="filter sort" href="?sort=code">Ticket ID</a></li>
+            <li><a class="filter sort" href="?sort=createdAt">Created Date</a></li>
+            <li><a class="filter sort" href="?sort=firstRespondDue">1st Response Due</a></li>
+            <li><a class="filter sort" href="?sort=resolutionDue">Resolution Due</a></li>
+            <li><a class="filter sort" href="?sort=closedAt">Closed Date</a></li>
           </ul>
         </li>
       </ul>

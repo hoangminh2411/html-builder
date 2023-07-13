@@ -10,6 +10,22 @@ const columnsByGroupBy = {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
+console.log(`~~~~ queryString`,queryString);
+if (queryString !=='') {
+  const allFilter = document.querySelectorAll('.filter');
+  Array.from(allFilter).map((filter)=>{
+    const filterType = filter.classList[1];
+    console.log(`filterType`,filterType)
+    const oldHref = filter.getAttribute("href");
+    console.log(`oldhref`,oldHref);
+
+    const paramsState = urlParams.get(filterType)
+    console.log(`paramsState`,paramsState)
+    if(paramsState == null) {   filter.setAttribute('href',`${queryString}&&${oldHref}`)}  
+    
+  })
+}
+
 const groupBy = urlParams.get('groupBy')
 let tablesColumns = columnsByGroupBy['my'];
 if(groupBy && Object.keys(columnsByGroupBy).includes(groupBy)) {

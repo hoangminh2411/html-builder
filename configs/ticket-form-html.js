@@ -8,8 +8,8 @@ export const getTicketForm =(id) =>{
   <div class="form-row" >
     <div class="form-cell" id="iiwn">
       <div class="form-field" title="Customer" id="i1dmk">
-        <label data-mytext="MyText" readonly class="field-title">Customer</label>
-        <input type="value"  data-key="customer-write" name="customer" />
+        <label data-mytext="MyText"  class="field-title">Customer</label>
+        <input type="value"  data-key="customer-write" readonly name="customer" />
       </div>
     </div>
   </div>
