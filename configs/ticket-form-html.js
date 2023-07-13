@@ -304,6 +304,7 @@ export const getTicketForm =(id) =>{
 
   </script>
   <script>
+  
   //Initial Service
   const getHeaderRequest  = () => {
     return  {
@@ -402,7 +403,7 @@ export const getTicketForm =(id) =>{
      }
   
    
-    document.querySelectorAll('[data-key="classification"]').forEach((element)=> {
+    document.querySelectorAll('[data-key="classification"]').forEach((element, index)=> {
         element.innerHTML = ''
         fieldOptionService.getCategoryList().then(response => {
           const {data:users } = response
@@ -433,8 +434,8 @@ export const getTicketForm =(id) =>{
               if(classfications.value){
                 results=JSON.parse(classfications.value)
               }
-              let classficationIdx = results.findIndex((item)=> item.classfication.id == selectedClassifaction.id)
-             
+  
+       
               let initClassfication = {
                 classfication: {
                   id:selectedClassifaction.id,
@@ -443,10 +444,10 @@ export const getTicketForm =(id) =>{
                 value: event.target.value
               }
 
-               if(classficationIdx == -1 ) {
-                results.push(initClassfication);
+               if(results.length - 1 > index ) {
+                results[index] = initClassfication
                } else {
-                results[classficationIdx] = initClassfication
+                results.push(initClassfication);
                }
               if(classfications) {
                 classfications.value = JSON.stringify(results) 
@@ -456,8 +457,6 @@ export const getTicketForm =(id) =>{
          
         })
     })
-  
-   
   </script>`
   return cssFormData  +  formData + formScript
 }

@@ -97,7 +97,7 @@
      }
   
    
-    document.querySelectorAll('[data-key="classification"]').forEach((element)=> {
+    document.querySelectorAll('[data-key="classification"]').forEach((element, index)=> {
         element.innerHTML = ''
         fieldOptionService.getCategoryList().then(response => {
           const {data:users } = response
@@ -128,8 +128,8 @@
               if(classfications.value){
                 results=JSON.parse(classfications.value)
               }
-              let classficationIdx = results.findIndex((item)=> item.classfication.id == selectedClassifaction.id)
-             
+  
+       
               let initClassfication = {
                 classfication: {
                   id:selectedClassifaction.id,
@@ -138,10 +138,10 @@
                 value: event.target.value
               }
 
-               if(classficationIdx == -1 ) {
-                results.push(initClassfication);
+               if(results.length - 1 > index ) {
+                results[index] = initClassfication
                } else {
-                results[classficationIdx] = initClassfication
+                results.push(initClassfication);
                }
               if(classfications) {
                 classfications.value = JSON.stringify(results) 
