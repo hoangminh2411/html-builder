@@ -2,13 +2,66 @@
 <html>
 <head>
   <link rel="stylesheet" href="./css.css">
-<style>
-</style>
+  <link rel="stylesheet" href="./webkit_toolbar.css">
+  <style>
+    @import url(https://fonts.bunny.net/css?family=roboto:300,400,500,700);
+  </style>
+  <style>
+    @import url(https://fonts.bunny.net/css?family=noto-sans-kr:300,400,500,700);
+  </style>
+  <style>
+    @import url(https://fonts.bunny.net/css?family=inter:300,400,500,700);
+  </style>
+  <style>
+    @import url(https://fonts.bunny.net/css?family=noto-sans:300,400,500,700);
+  </style>
+  <style>
+    @import url(https://fonts.bunny.net/css?family=ibm-plex-sans:300,400,500,700);
+  </style>
+  <style>
+    @import url(https://fonts.bunny.net/css?family=nanum-gothic:300,400,500,700);
+  </style>
+   <!-- Editor's Style -->
 </head>
 <body>
-
-<h1>A Fancy Table</h1>
 <div class="toolbar-container">
+  <div class="toolbar-container-left">
+    <!-- Filter -->
+    <nav role="navigation" class="primary-navigation">
+      <ul>
+        <li><a href="#">Group By &dtrif;</a>
+          <ul class="dropdown">
+            <li><a href="#"> All Tickets</a></li>
+            <li><a href="#">Resolved Tickets</a></li>
+            <li><a href="#">Closed Tickets</a></li>
+            <li><a href="#">My Tickets</a></li>
+            <li><a href="#">My Resolved Tickets</a></li>
+            <li><a href="#">My Closed Tickets</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Filter By &dtrif;</a>
+          <ul class="dropdown">
+            <li><form >
+              <p>Priority</p>
+              <input/>
+            </form></li>
+          </ul>
+        </li>
+       
+        <li><a href="#">Sort By &dtrif;</a>
+          <ul class="dropdown">
+            <li><a href="#">Subject </a></li>
+            <li><a href="#">Ticket ID</a></li>
+            <li><a href="#">Created Date</a></li>
+            <li><a href="#">1st Response Due</a></li>
+            <li><a href="#">Resolution Due</a></li>
+            <li><a href="#">Closed Date</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- end of filter -->
+  </div>
   <div class="toolbar-container-right">
 <div class="search-container">
   <input type="text" placeholder="Search..." value="" class="search-input" />
@@ -34,14 +87,34 @@
   <tr>
     <td><a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a></td>
     <td>Error/Product A</td>
-    <td>Resolved</td>
-    <td>Resolved</td>
+    <td><div class="priority-chip">
+      <div class="chip-title" data-key="priority-list">Medium</div>
+    </div></td>
+    <td><div class="priority-chip">
+      <div class="chip-title" data-key="priority-list">Medium</div>
+    </div></td>
     <td>Robert Fox</td>
     <td>2023-06-20</td>
 
   </tr>
   
 </table>
+<div class="footer-list">
+  <div class="pagination-container">
+    <div class="typography"><span>Row per page
+    </span></div>
+    <select name="pageSize" class="page-size-box">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>     
+    </select>
+    <div class="typography"><span>1-5 of 13
+    </span></div>
+    <button class="pagination-btn"> < </button>
+    <button class="pagination-btn"> > </button>
 
+  </div>
+</div>
 </body>
 </html>
