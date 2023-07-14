@@ -367,7 +367,14 @@ ul li ul li a {
   color: #1890ff;
   background-color: #e6f7ff;
 }
-
+.color-error {
+  color: rgb(255, 77, 79);
+  background-color: rgb(255, 241, 240);
+}
+.color-warning {
+  color: rgb(250, 173, 20);
+  background-color: rgb(255, 251, 230);
+}
 .chip-title {
   overflow: hidden;
   text-overflow: ellipsis;
