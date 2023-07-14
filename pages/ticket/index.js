@@ -18,7 +18,7 @@ export default function TicketMainPage({html, css, script}) {
 export async function getServerSideProps(context) {
   const {query} = context;
   
-  // console.log("context.params", context, query)
+  console.log("context.params", context, query)
 
   const jsdom = require("jsdom");
   const { JSDOM } = jsdom;

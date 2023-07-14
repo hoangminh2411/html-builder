@@ -1,11 +1,20 @@
-export const headerHtml = ` <div id="root" classname="scroll-box">
-  
+export const headerHtml = `  <div id="root" classname="scroll-box">
+
 <div id="isbj">
   <div id="ivij">
     <div id="iwar">
-      <button type="button" id="i609">
-        <img src="svg/back-arrow.svg" class="back-arrow" />
-      </button>
+      <a id="i609" href="/ticket">
+        <svg class="back-arrow" fill="#1890ff" viewBox="0 0 52 52" data-name="Layer 1" id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M50,24H6.83L27.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0l-24,24a1.79,1.79,0,0,0-.25.31A1.19,1.19,0,0,0,.25,25c0,.07-.07.13-.1.2l-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2c0,.07.07.13.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31l24,24a2,2,0,1,0,2.82-2.82L6.83,28H50a2,2,0,0,0,0-4Z">
+            </path>
+          </g>
+        </svg>
+      </a>
       <button type="button" id="i5k8">
         <h5 id="ijwf">
           <span data-lang-id="ncrm_common_desk_sites">Desk Sites</span>
@@ -22,11 +31,13 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
 </div>
 <div id="i8361">
   <div id="ih6ef">
-    <button  id="myBtn" class="add-btn">Add</button>
+    <button id="myBtn" class="add-btn">Add</button>
     <div id="i5r1d">
       <input type="text" placeholder="Search..." value="" id="i4erq" />
       <svg aria-hidden="true" viewBox="0 0 24 24" data-testid="SearchIcon" id="io3sw">
-        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+        </path>
       </svg>
       <fieldset aria-hidden="true" id="islgc">
         <legend id="i0q4o">
@@ -42,11 +53,12 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
       <p id="idlx">Tickets </p>
     </div>
     <!-- List GRID ITEM -->
-    <div  class="list-grid-container">
-      <div data-type="list-common" class="grid">
+    <div data-type="list-common" class="list-grid-container">
+      <div class="grid">
         <div class="grid-title">
           <div class="grid-title-text">
-            <a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit est</a>
+            <a data-key="subject-list" class="title-text">Amet minim mollit non deserunt ullamco est si venimollit
+              est</a>
           </div>
         </div>
         <div class="grid-info-container">
@@ -72,8 +84,10 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
   <div class="list-split-right">
     <button class="split-btn" id="split-btn">
       <span class="css-1j2nbe3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="50" viewBox="0 0 15 70" fill="none" stroke="currentColor">
-          <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="284.131" y1="-335.205" x2="321.79" y2="-364.628" gradientTransform="matrix(1 0 0 -1 -290.1 -315.99)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="50" viewBox="0 0 15 70" fill="none"
+          stroke="currentColor">
+          <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="284.131" y1="-335.205" x2="321.79" y2="-364.628"
+            gradientTransform="matrix(1 0 0 -1 -290.1 -315.99)">
             <stop offset="0" style="stop-color: rgb(153, 41, 234);"></stop>
             <stop offset=".035" style="stop-color: rgb(148, 39, 235);"></stop>
             <stop offset=".265" style="stop-color: rgb(122, 25, 242);"></stop>
@@ -82,30 +96,48 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
             <stop offset="1" style="stop-color: rgb(88, 8, 251);"></stop>
           </linearGradient>
           <path fill="url(#a)" d="M0 15v40c0 12.062 15 6.716 15 15V0C15 8.284 0 2.875 0 15z"></path>
-          <path fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9.969 40-5-5 5-5"></path>
+          <path fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            d="m9.969 40-5-5 5-5"></path>
         </svg>
       </span>
     </button>
     <div>
       <div id="ih6w">
-        <div id="iob2n">
-         
-          <div class="editable isViewing">
-          <div class="view" id="ith3w">
-            <h5 id="il6pe"  data-key="subject-view" data-type="view-common">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam</h5>
-           
+        <div class="editable isViewing">
+          <div class="view" id="iob2n">
+            <h5 id="il6pe" data-type="view-common" data-key="subject-view">Amet minim mollit non deserunt ullamco est sit
+              aliqua
+              dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam</h5>
           </div>
-          <form data-type="ticket-update" class="edit">
-          <div data-key="subject-edit"> <input  /></div>
-            
+          <form class="edit">
+            <div data-key="subject-edit">
+              <input name="subject"  />   
+            </div>
+
             <div class="button-group">
-              <button type="submit" class="button-save"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></button>
-              <button type="button" class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+              <button type="submit" class="button-save"><svg
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false"
+                  aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon">
+                  <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                </svg></button>
+              <button type="button" class="button-cancle"><svg
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false"
+                  aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon">
+                  <path
+                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                  </path>
+                </svg></button>
             </div>
           </form>
-          <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
+          <span role="img" aria-label="edit" color="secondary" tabindex="-1"
+            class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false"
+              data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path
+                d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z">
+              </path>
+            </svg></span>
         </div>
-        </div>
+        
       </div>
       <div id="i9y96">
         <div id="i5sag">
@@ -119,14 +151,14 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
               <div id="ibzq3">
                 <div id="i8yg5">
                   <div id="ipcma">
-                    <div class="view-field-container" >
+                    <div class="view-field-container">
                       <label class="view-field-label-container">
-                        <span  class="field-label">Customer</span>
+                        <span class="field-label">Customer</span>
                       </label>
                       <div id="iwehh">
                         <p id="i6z5y" data-type="view-common" data-key="customer-view">Jenny Willson Acme co.</p>
                       </div>
-                  </div>
+                    </div>
                     <hr id="i2shi" />
                     <div class="view-field-container">
                       <label class="view-field-label-container">
@@ -135,7 +167,7 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
                       <div id="i6pj5">
                         <p data-type="view-common" data-key="code-view" id="ik5sx">Desk Email</p>
                       </div>
-                     
+
                     </div>
                     <hr id="io8o6" />
                     <div id="ixuye">
@@ -167,23 +199,17 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
                     <hr id="iz07o" />
                     <div id="iswqj">
                       <label id="iq75b">
-                        <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Assigned Rep</span>
+                        <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Assigned
+                          Rep</span>
                       </label>
-                      <div class="editable isViewing">
-                        <div class="view" id="ith3w">
-                          <p id="indpi" data-type="view-common" data-key="assignedUser-view">Jenny Willson</p>
-                        </div>
-                        <form data-type="ticket-update" class="edit">
-                          <div data-key="assignedUser-edit"> <input  /></div>
-                        
-                          <div class="button-group">
-                            <button type="submit" class="button-save"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></button>
-                            <button type="button" class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
-                          </div>
-                        </form>
-                        <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
+
+                      <div id="ith3w">
+                        <p id="indpi" data-type="view-common" data-key="assignedUser-view">Jenny Willson</p>
                       </div>
-                  </div>
+
+
+
+                    </div>
                     <hr id="ifqog" />
                     <div id="iz4zj">
                       <label id="iowll">
@@ -196,7 +222,8 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
                     <hr id="idjm9" />
                     <div id="irkmz">
                       <label id="iz3ch">
-                        <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">1st Response Due</span>
+                        <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">1st Response
+                          Due</span>
                       </label>
                       <div id="ig11g">
                         <p id="i6jri" data-type="view-common" data-key="firstRespondDue-view">6/23/2023 09:03</p>
@@ -205,7 +232,8 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
                     <hr id="iugzx3" />
                     <div id="i7b3bg">
                       <label id="i5l9b9">
-                        <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Resolved Date</span>
+                        <span data-lang-id="desk_ticket_field_basic_customer" class="field-label">Resolved
+                          Date</span>
                       </label>
                       <div id="is41tv">
                         <p data-type="view-common" data-key="resolvedDate-view" id="iij7vi">6/24/2023 09:03</p>
@@ -238,23 +266,48 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
             <div id="isc57k">
               <div class="editable isViewing">
                 <div class="view" id="ith3w">
-                  <div data-type="view-common" data-key="content-view">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
-                 
+                  <div data-type="view-common" data-key="content-view">Amet minim mollit non deserunt ullamco est
+                    sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+                    veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor
+                    do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                    nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                    officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet
+                    minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
+                    duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non
+                    deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit
+                    mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+
                 </div>
-                <form data-type="ticket-update" class="edit">
-             
+                <form class="edit">
+                  <div>
                     <input style="display:none" hidden type="value" name="content" data-key="content-edit" />
                     <div id="editor-content-view"></div>
-              
-                
+                  </div>
+
                   <div class="button-group">
-                    <button type="submit" class="button-save"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></button>
-                    <button type="button" class="button-cancle"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+                    <button type="submit" class="button-save"><svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false"
+                        aria-hidden="true" viewBox="0 0 24 24" data-testid="CheckIcon">
+                        <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                      </svg></button>
+                    <button type="button" class="button-cancle"><svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-a4rki7" focusable="false"
+                        aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon">
+                        <path
+                          d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                        </path>
+                      </svg></button>
                   </div>
                 </form>
-                <span role="img" aria-label="edit" color="secondary" tabindex="-1" class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false" data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"></path></svg></span>
+                <span role="img" aria-label="edit" color="secondary" tabindex="-1"
+                  class="anticon anticon-edit icon-edit"><svg viewBox="64 64 896 896" focusable="false"
+                    data-icon="edit" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z">
+                    </path>
+                  </svg></span>
               </div>
-             
+
               <div id="ibvg3z">Response</div>
               <div id="ixups4" data-type="respone-view">
                 <div id="iu155y">
@@ -262,7 +315,12 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
                     <h6 id="ii3zwl" data-key="user-view">MSR</h6>
                     <span class="comment-time" data-key="createdAt">8/10/2022 23:30</span>
                   </div>
-                  <div data-key="content">met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div>
+                  <div data-key="content">met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+                    consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim
+                    mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
+                    velit mollit. </div>
                 </div>
               </div>
               <div id="ivyn99">
@@ -270,25 +328,30 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
               </div>
               <hr id="i54jv2" />
               <div id="desk-comment">
-              <div id="iyns3y">Comment</div>
-              <div id="iiz0fj">
-                <div data-type="comment-view" >
-                  <div class="item-container"  data-key="comment">
-                    <div class="item-header">
-                      <h6 data-key="user" class="user-title">MSR</h6>
-                      <span class="comment-time" data-key="createdAt">8/10/2022 23:30</span>
+                <div id="iyns3y">Comment</div>
+                <div id="iiz0fj">
+                  <div data-type="comment-view">
+                    <div class="item-container" data-key="comment">
+                      <div class="item-header">
+                        <h6 data-key="user" class="user-title">MSR</h6>
+                        <span class="comment-time" data-key="createdAt">8/10/2022 23:30</span>
+                      </div>
+                      <div data-key="content">met minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                        sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                        nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
+                        amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                        officia consequat duis enim velit mollit. </div>
                     </div>
-                    <div data-key="content">met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div>
                   </div>
+                  <!-- <div id="iwyqai"><div id="i9k4qf"><h6 id="i4xssk">Feedback from Contact</h6><span  class="comment-time">8/10/2022 23:30</span></div><div >met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div></div><div id="ianyhm"><div id="ixd8p9"><h6 id="itlbfq">MSR 2</h6><span class="comment-time">8/10/2022 23:30</span></div><div >met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div></div> -->
                 </div>
-                <!-- <div id="iwyqai"><div id="i9k4qf"><h6 id="i4xssk">Feedback from Contact</h6><span  class="comment-time">8/10/2022 23:30</span></div><div >met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div></div><div id="ianyhm"><div id="ixd8p9"><h6 id="itlbfq">MSR 2</h6><span class="comment-time">8/10/2022 23:30</span></div><div >met minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </div></div> -->
+                <div id="iv324k">
+                  <p id="view-all-btn-comment" class="view-all-btn">View All</p>
+                </div>
+
+                <hr id="il90i4" />
               </div>
-              <div id="iv324k">
-                <p id="view-all-btn-comment" class="view-all-btn">View All</p>
-              </div>
-              
-              <hr id="il90i4" />
-            </div>
               <div id="i0lvu6">
                 <button type="button" id="inps1m">Comment</button>
                 <button type="button" id="iszu0s">Request Review</button>
@@ -304,27 +367,28 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
 </div>
 <!-- The Modal -->
 <div id="myModal" class="modal">
-<form data-type="ticket-create" class="form-container" id="ih8p">
+  <form data-type="ticket-create" class="form-container" id="ih8p">
 
-  <!-- <button id="buttonCloseDialog" onClick="myModal.close()">
+    <!-- <button id="buttonCloseDialog" onClick="myModal.close()">
   Close
 </button> -->
 
-<!-- Modal content -->
-<div class="modal-content">
-<div class="modal-header">
-  <p class="modal-title">Modal Header</p>
-  <span class="close">&times;</span>
-</div>
-<div class="modal-body scroll-box">
-  <div data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">Form ticket</div>
-</div>
-<div class="modal-footer">
-  <button id="buttonCloseDialog" type="button">Cancel</button>
-  <button id="buttonSaveDialog" class="save-btn" type="submit" value="Submit">Save</button>
-</div>
-</div>
-</form>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title">Modal Header</p>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body scroll-box">
+        <div data-type="ticket-write" source="26d05c07-0685-41e2-a7c3-e1ff246b17ce" class="form-select" id="ikxm">
+          Form ticket</div>
+      </div>
+      <div class="modal-footer">
+        <button id="buttonCloseDialog" type="button">Cancel</button>
+        <button id="buttonSaveDialog" class="save-btn" type="submit" value="Submit">Save</button>
+      </div>
+    </div>
+  </form>
 </div>
 
 </div>`
@@ -332,6 +396,41 @@ export const headerHtml = ` <div id="root" classname="scroll-box">
 export const headerStyle = `<style>* {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('./roboto/roboto-v30-latin-300.woff2') format('woff2'), 
+       url('./roboto/roboto-v30-latin-300.woff') format('woff'); 
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./roboto/roboto-v30-latin-regular.woff2') format('woff2'),
+       url('./roboto/roboto-v30-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('./roboto/roboto-v30-latin-500.woff2') format('woff2'), 
+       url('./roboto/roboto-v30-latin-500.woff') format('woff'); 
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('./roboto/roboto-v30-latin-700.woff2') format('woff2'), 
+       url('./roboto/roboto-v30-latin-700.woff') format('woff'); 
+} 
+
+
 div { 
   font-family: Roboto, sans-serif;
 }
@@ -914,12 +1013,13 @@ body {
   transition: width 150ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
 #ih6w{
-  padding-left:16px;
+  padding:0 16px;
+  height:64px;
 }
 #iob2n {
   min-height: 40px;
   padding: 8px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   position: relative;
   cursor: text;
@@ -2197,21 +2297,22 @@ body {
 }</style>`
 
 export const  headerScript = `<script>
-const editorConent = new toastui.Editor({
-   el: document.querySelector('#editor-content-view'),
-   height: '250px',
-   events: {
-     blur: (value)=>{
-       let contentWriteElement = document.querySelector('[data-key="content-edit"]')
-       if(contentWriteElement) {
-         contentWriteElement.value = editorConent.getHTML()
-       }
-       console.log('value editor editorConent', editorConent.getHTML())
-     }
-   },
-   initialValue: '',
-   initialEditType: 'wysiwyg'
- });
+let contentFieldEditor = document.querySelector('[data-key="content-view"]')
+const editorView = new toastui.Editor({
+  el: document.querySelector('#editor-content-view'),
+  height: '500px',
+  events: {
+    blur: (value) => {
+      let contentWriteElement = document.querySelector('[data-key="content-edit"]')
+      if (contentWriteElement) {
+        contentWriteElement.value = editor.getHTML()
+      }
+      console.log('value editor', editor.getHTML())
+    }
+  },
+  initialValue: contentFieldEditor.innerHTML,
+  initialEditType: 'wysiwyg'
+});
 </script><script>
 const splitButton = document.querySelector("#split-btn");
 const leftTab = document.querySelector("#split-left");
