@@ -24,8 +24,73 @@ function autocomplete(autocomplete, arr,mode) {
       /*append the DIV element as a child of the autocomplete container:*/
       this.parentNode.appendChild(autoCompleteList);
       /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
+      if (mode == 'select') {
+        for (i = 0; i < arr.length; i++) {
+          /*check if the item starts with the same lettersas the text field value:*/
+            /*create a DIV element for each matching element:*/
+            item = document.createElement("DIV");
+  
+            inp.setAttribute('readonly',true);
+            /*make the matching letters bold:*/
+            // item.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            // item.innerHTML += arr[i].substr(val.length);
+            item.innerHTML = arr[i].label;
+            
+            /*insert a input field that will hold the current array item's value:*/
+            item.innerHTML += "<input type='hidden' value='" + arr[i].value + "'>";
+            /*execute a function when someone clicks on the item value (DIV element):*/
+            item.addEventListener("click", function(e) {
+                /*insert the value for the autocomplete text field:*/
+            
+                const itemVal= this.getElementsByTagName("input")[0].value;
+                if (mode=='single') {
+                  value.value=this.getElementsByTagName("input")[0].value
+                  inp.value=value.value;
+                }
+                else if (!value.value) {
+                  inp.value = ``
+                  value.value=JSON.stringify([this.getElementsByTagName("input")[0].value])
+                }
+                else {
+                inp.value = ``
+                 let oldVal = JSON.parse(value.value)
+                  oldVal.push(this.getElementsByTagName("input")[0].value)
+  
+                  console.log(`oldVal`,oldVal)
+                 value.value = JSON.stringify(oldVal);
+                }
+                console.log(`autoComplete mode`,mode)
+                if (mode !='single') {let chip = document.createElement("DIV");
+                chip.className = "chip"
+                chip.innerHTML = 
+                `<span>${this.getElementsByTagName("input")[0].value}</span><svg class="delete-icon"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg>`
+                container.insertBefore(chip,inp);
+                console.log(`value`,value.value);
+                // assign delete onclick
+                const deleteBtn= chip.querySelector('svg');
+                console.log(`deleteBtn`,deleteBtn);
+                deleteBtn.addEventListener("click", function() {
+                  let curArr = JSON.parse(value.value);
+                  if(curArr.includes(itemVal)) {
+                    curArr = curArr.filter(e => e !== itemVal);
+                  }
+                  value.value = JSON.stringify(curArr);
+                  chip.remove();
+                })}
+  
+            
+                /*close the list of autocompleted values,
+                
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+            });
+            autoCompleteList.appendChild(item);
+          
+        
+    }
+      }
+      else for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same lettersas the text field value:*/
         if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
           /*create a DIV element for each matching element:*/
           item = document.createElement("DIV");
