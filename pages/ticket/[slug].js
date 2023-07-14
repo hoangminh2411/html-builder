@@ -143,10 +143,13 @@ export async function getServerSideProps(context) {
             // console.log("assignedUser writeElement", writeElement)
           }
           
-         console.log("assignedUser editElement", editElement, `[data-key="${dataKey}-edit"]`)
+        //  console.log("assignedUser editElement", editElement, `[data-key="${dataKey}-edit"]`,formElement)
           if(editElement && formElement ) {
             let editComponent = formElement.cloneNode(true)
             editComponent.style.width = '100%'
+            editComponent.value = responseData[dataKey]
+            editComponent.setAttribute("value", responseData[dataKey])  
+            console.log("editComponent ", `[data-key="${dataKey}-edit"]`,editComponent)
             editElement.innerHTML = editComponent.outerHTML
           }
           break;

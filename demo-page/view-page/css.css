@@ -618,13 +618,13 @@ body {
   transition: width 150ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
 #ih6w{
-  padding-left:16px;
-  height:42px;
+  padding:0 16px;
+  height:64px;
 }
 #iob2n {
   min-height: 40px;
   padding: 8px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   position: relative;
   cursor: text;

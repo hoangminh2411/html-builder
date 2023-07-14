@@ -1,4 +1,4 @@
-export const listHTML = ` <div id="root" class="container">
+export const listHTML = `<div id="root" class="container">
 <div class="bottom-toolbar-container hidden">
   <input hidden value id="ticketIds" />
   <button class="bottom-toolbar-btn">
